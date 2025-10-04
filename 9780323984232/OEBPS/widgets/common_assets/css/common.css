@@ -1,0 +1,60 @@
+figure{
+	position: relative;
+}
+figure img{
+	max-width: 100%;
+	max-height: inherit !important;
+}
+.fig-page-body
+{
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding:0px;
+}
+
+.stop-scrolling {
+	overflow: hidden;
+}
+
+.video-area {
+	padding: 0px;
+	overflow: hidden;
+	height: 100%;
+    width: 100%; 
+	max-width: 740px;
+    margin: 0 auto;
+}
+video.hls-video{
+	width: 100vw !important;
+	width: 100% !important;
+	height: auto !important;
+	max-height: 100% !important;
+	object-fit: fill !important;
+}
+.video-area video{
+	width: 100vw !important;
+	width: 100% !important;
+	height: auto !important;
+	max-height: 100% !important;
+	object-fit: fill !important;
+}
+video::-internal-media-controls-download-button { 
+    display:none; 
+} 
+ 
+video::-webkit-media-controls-enclosure { 
+    overflow:hidden; 
+} 
+ 
+video::-webkit-media-controls-panel { 
+    width: calc(100% + 30px); /* Adjust as needed */ 
+}
+.video-area .vidleg
+{
+	text-indent: 0em !important;
+}
+.video-area .vidleg *{
+    text-indent: unset !important;
+}

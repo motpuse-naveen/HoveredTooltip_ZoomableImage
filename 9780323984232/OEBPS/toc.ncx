@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en">
+  <head>
+    <meta name="dtb:totalPageCount" content="979"/>
+    <meta name="dtb:uid" content="urn:isbn:978-0-323-98423-2"/>
+    <meta name="dtb:depth" content="2"/>
+  </head>
+  <docTitle>
+    <text>Navigation</text>
+  </docTitle>
+  <navMap>
+<navPoint id="toc1" playOrder="1"><navLabel><text>Title of Book</text></navLabel><content src="Cover.xhtml"/>
+<navPoint id="toc2" playOrder="2"><navLabel><text>Cover image</text></navLabel><content src="Cover.xhtml#Cover"/></navPoint>
+<navPoint id="toc3" playOrder="3"><navLabel><text>Title page</text></navLabel><content src="Title_page.xhtml"/></navPoint>
+<navPoint id="toc4" playOrder="4"><navLabel><text>Table of Contents</text></navLabel><content src="Contents.xhtml"/></navPoint>
+<navPoint id="toc5" playOrder="5"><navLabel><text>Copyright</text></navLabel><content src="Copyright_iv_B9780323999663000039.xhtml"/></navPoint>
+<navPoint id="toc6" playOrder="6"><navLabel><text>Dedication</text></navLabel><content src="Dedication_v_B9780323999663000040.xhtml"/></navPoint>
+</navPoint>
+<navPoint id="toc7" playOrder="7"><navLabel><text>Part I: Foundations</text></navLabel><content src="Part1.xhtml"/>
+<navPoint id="toc8" playOrder="8"><navLabel><text>2: Programming Language Syntax</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml"/>
+  <navPoint id="toc9" playOrder="9">
+          <navLabel>
+            <text>2.1. Specifying Syntax: Regular Expressions and Context-Free Grammars</text>
+          </navLabel>
+          <content src="Chp002_43-112_B9780323999663000118.xhtml#st0025"/>
+    <navPoint id="toc10" playOrder="10">
+            <navLabel>
+              <text>2.1.1. Tokens and Regular Expressions</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0030"/>
+          </navPoint>
+    <navPoint id="toc11" playOrder="11">
+            <navLabel>
+              <text>2.1.2. Context-Free Grammars</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0065"/>
+          </navPoint>
+    <navPoint id="toc12" playOrder="12">
+            <navLabel>
+              <text>2.1.3. Derivations and Parse Trees</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0080"/>
+          </navPoint>
+        </navPoint>
+  <navPoint id="toc13" playOrder="13">
+          <navLabel>
+            <text>2.2. Scanning</text>
+          </navLabel>
+          <content src="Chp002_43-112_B9780323999663000118.xhtml#st0100"/>
+    <navPoint id="toc14" playOrder="14">
+            <navLabel>
+              <text>2.2.1. Generating a Finite Automaton</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0125"/>
+          </navPoint>
+    <navPoint id="toc15" playOrder="15">
+            <navLabel>
+              <text>2.2.2. Scanner Code</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0165"/>
+          </navPoint>
+    <navPoint id="toc16" playOrder="16">
+            <navLabel>
+              <text>2.2.3. Table-Driven Scanning</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0195"/>
+          </navPoint>
+    <navPoint id="toc17" playOrder="17">
+            <navLabel>
+              <text>2.2.4. Lexical Errors</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0205"/>
+          </navPoint>
+    <navPoint id="toc18" playOrder="18">
+            <navLabel>
+              <text>2.2.5. Pragmas</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0210"/>
+          </navPoint>
+        </navPoint>
+  <navPoint id="toc19" playOrder="19">
+          <navLabel>
+            <text>2.3. Parsing</text>
+          </navLabel>
+          <content src="Chp002_43-112_B9780323999663000118.xhtml#st0215"/>
+    <navPoint id="toc20" playOrder="20">
+            <navLabel>
+              <text>2.3.1. Recursive Descent</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0230"/>
+          </navPoint>
+    <navPoint id="toc21" playOrder="21">
+            <navLabel>
+              <text>2.3.2. Writing an LL(1) Grammar</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0250"/>
+          </navPoint>
+    <navPoint id="toc22" playOrder="22">
+            <navLabel>
+              <text>2.3.3. Table-Driven Top-Down Parsing</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0300"/>
+          </navPoint>
+    <navPoint id="toc23" playOrder="23">
+            <navLabel>
+              <text>2.3.4. Bottom-Up Parsing</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0325"/>
+          </navPoint>
+    <navPoint id="toc24" playOrder="24">
+            <navLabel>
+              <text>2.3.5. Recovering from Syntax Errors</text>
+            </navLabel>
+            <content src="Chp002_43-112_B9780323999663000118.xhtml#st0385"/>
+          </navPoint>
+        </navPoint>
+  <navPoint id="toc25" playOrder="25">
+          <navLabel>
+            <text>2.4. Theoretical Foundations</text>
+          </navLabel>
+          <content src="Chp002_43-112_B9780323999663000118.xhtml#st0395"/>
+        </navPoint>
+  <navPoint id="toc26" playOrder="26">
+          <navLabel>
+            <text>2.5. Summary and Concluding Remarks</text>
+          </navLabel>
+          <content src="Chp002_43-112_B9780323999663000118.xhtml#st0400"/>
+        </navPoint>
+  <navPoint id="toc27" playOrder="27">
+          <navLabel>
+            <text>2.6. Exercises</text>
+          </navLabel>
+          <content src="Chp002_43-112_B9780323999663000118.xhtml#st0405"/>
+        </navPoint>
+  <navPoint id="toc28" playOrder="28">
+          <navLabel>
+            <text>2.7. Explorations</text>
+          </navLabel>
+          <content src="Chp002_43-112_B9780323999663000118.xhtml#st0410"/>
+        </navPoint>
+  <navPoint id="toc29" playOrder="29">
+          <navLabel>
+            <text>2.8. Bibliographic Notes</text>
+          </navLabel>
+          <content src="Chp002_43-112_B9780323999663000118.xhtml#st0415"/>
+        </navPoint></navPoint></navPoint>
+  </navMap>
+  <pageList>
+<pageTarget type="front" value="page_i" playOrder="30"><navLabel><text>i</text></navLabel><content src="Cover.xhtml#page_i"/></pageTarget>
+<pageTarget type="front" value="page_ii" playOrder="31"><navLabel><text>ii</text></navLabel><content src="Title_page.xhtml#page_ii"/></pageTarget>
+<pageTarget type="front" value="page_iv" playOrder="32"><navLabel><text>iv</text></navLabel><content src="Copyright_iv_B9780323999663000039.xhtml#page_iv"/></pageTarget>
+<pageTarget type="front" value="page_v" playOrder="33"><navLabel><text>v</text></navLabel><content src="Dedication_v_B9780323999663000040.xhtml#page_v"/></pageTarget>
+<pageTarget type="normal" value="page_43" playOrder="34"><navLabel><text>43</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_43"/></pageTarget>
+<pageTarget type="normal" value="page_44" playOrder="35"><navLabel><text>44</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_44"/></pageTarget>
+<pageTarget type="normal" value="page_45" playOrder="36"><navLabel><text>45</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_45"/></pageTarget>
+<pageTarget type="normal" value="page_46" playOrder="37"><navLabel><text>46</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_46"/></pageTarget>
+<pageTarget type="normal" value="page_47" playOrder="38"><navLabel><text>47</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_47"/></pageTarget>
+<pageTarget type="normal" value="page_48" playOrder="39"><navLabel><text>48</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_48"/></pageTarget>
+<pageTarget type="normal" value="page_49" playOrder="40"><navLabel><text>49</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_49"/></pageTarget>
+<pageTarget type="normal" value="page_50" playOrder="41"><navLabel><text>50</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_50"/></pageTarget>
+<pageTarget type="normal" value="page_51" playOrder="42"><navLabel><text>51</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_51"/></pageTarget>
+<pageTarget type="normal" value="page_52" playOrder="43"><navLabel><text>52</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_52"/></pageTarget>
+<pageTarget type="normal" value="page_53" playOrder="44"><navLabel><text>53</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_53"/></pageTarget>
+<pageTarget type="normal" value="page_54" playOrder="45"><navLabel><text>54</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_54"/></pageTarget>
+<pageTarget type="normal" value="page_55" playOrder="46"><navLabel><text>55</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_55"/></pageTarget>
+<pageTarget type="normal" value="page_56" playOrder="47"><navLabel><text>56</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_56"/></pageTarget>
+<pageTarget type="normal" value="page_57" playOrder="48"><navLabel><text>57</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_57"/></pageTarget>
+<pageTarget type="normal" value="page_58" playOrder="49"><navLabel><text>58</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_58"/></pageTarget>
+<pageTarget type="normal" value="page_59" playOrder="50"><navLabel><text>59</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_59"/></pageTarget>
+<pageTarget type="normal" value="page_60" playOrder="51"><navLabel><text>60</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_60"/></pageTarget>
+<pageTarget type="normal" value="page_61" playOrder="52"><navLabel><text>61</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_61"/></pageTarget>
+<pageTarget type="normal" value="page_62" playOrder="53"><navLabel><text>62</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_62"/></pageTarget>
+<pageTarget type="normal" value="page_63" playOrder="54"><navLabel><text>63</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_63"/></pageTarget>
+<pageTarget type="normal" value="page_64" playOrder="55"><navLabel><text>64</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_64"/></pageTarget>
+<pageTarget type="normal" value="page_65" playOrder="56"><navLabel><text>65</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_65"/></pageTarget>
+<pageTarget type="normal" value="page_66" playOrder="57"><navLabel><text>66</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_66"/></pageTarget>
+<pageTarget type="normal" value="page_67" playOrder="58"><navLabel><text>67</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_67"/></pageTarget>
+<pageTarget type="normal" value="page_68" playOrder="59"><navLabel><text>68</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_68"/></pageTarget>
+<pageTarget type="normal" value="page_69" playOrder="60"><navLabel><text>69</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_69"/></pageTarget>
+<pageTarget type="normal" value="page_70" playOrder="61"><navLabel><text>70</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_70"/></pageTarget>
+<pageTarget type="normal" value="page_71" playOrder="62"><navLabel><text>71</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_71"/></pageTarget>
+<pageTarget type="normal" value="page_72" playOrder="63"><navLabel><text>72</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_72"/></pageTarget>
+<pageTarget type="normal" value="page_73" playOrder="64"><navLabel><text>73</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_73"/></pageTarget>
+<pageTarget type="normal" value="page_74" playOrder="65"><navLabel><text>74</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_74"/></pageTarget>
+<pageTarget type="normal" value="page_75" playOrder="66"><navLabel><text>75</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_75"/></pageTarget>
+<pageTarget type="normal" value="page_76" playOrder="67"><navLabel><text>76</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_76"/></pageTarget>
+<pageTarget type="normal" value="page_77" playOrder="68"><navLabel><text>77</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_77"/></pageTarget>
+<pageTarget type="normal" value="page_78" playOrder="69"><navLabel><text>78</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_78"/></pageTarget>
+<pageTarget type="normal" value="page_79" playOrder="70"><navLabel><text>79</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_79"/></pageTarget>
+<pageTarget type="normal" value="page_80" playOrder="71"><navLabel><text>80</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_80"/></pageTarget>
+<pageTarget type="normal" value="page_81" playOrder="72"><navLabel><text>81</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_81"/></pageTarget>
+<pageTarget type="normal" value="page_82" playOrder="73"><navLabel><text>82</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_82"/></pageTarget>
+<pageTarget type="normal" value="page_83" playOrder="74"><navLabel><text>83</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_83"/></pageTarget>
+<pageTarget type="normal" value="page_84" playOrder="75"><navLabel><text>84</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_84"/></pageTarget>
+<pageTarget type="normal" value="page_85" playOrder="76"><navLabel><text>85</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_85"/></pageTarget>
+<pageTarget type="normal" value="page_86" playOrder="77"><navLabel><text>86</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_86"/></pageTarget>
+<pageTarget type="normal" value="page_87" playOrder="78"><navLabel><text>87</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_87"/></pageTarget>
+<pageTarget type="normal" value="page_88" playOrder="79"><navLabel><text>88</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_88"/></pageTarget>
+<pageTarget type="normal" value="page_89" playOrder="80"><navLabel><text>89</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_89"/></pageTarget>
+<pageTarget type="normal" value="page_90" playOrder="81"><navLabel><text>90</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_90"/></pageTarget>
+<pageTarget type="normal" value="page_91" playOrder="82"><navLabel><text>91</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_91"/></pageTarget>
+<pageTarget type="normal" value="page_92" playOrder="83"><navLabel><text>92</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_92"/></pageTarget>
+<pageTarget type="normal" value="page_93" playOrder="84"><navLabel><text>93</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_93"/></pageTarget>
+<pageTarget type="normal" value="page_94" playOrder="85"><navLabel><text>94</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_94"/></pageTarget>
+<pageTarget type="normal" value="page_95" playOrder="86"><navLabel><text>95</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_95"/></pageTarget>
+<pageTarget type="normal" value="page_96" playOrder="87"><navLabel><text>96</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_96"/></pageTarget>
+<pageTarget type="normal" value="page_97" playOrder="88"><navLabel><text>97</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_97"/></pageTarget>
+<pageTarget type="normal" value="page_98" playOrder="89"><navLabel><text>98</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_98"/></pageTarget>
+<pageTarget type="normal" value="page_99" playOrder="90"><navLabel><text>99</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_99"/></pageTarget>
+<pageTarget type="normal" value="page_100" playOrder="91"><navLabel><text>100</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_100"/></pageTarget>
+<pageTarget type="normal" value="page_101" playOrder="92"><navLabel><text>101</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_101"/></pageTarget>
+<pageTarget type="normal" value="page_102" playOrder="93"><navLabel><text>102</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_102"/></pageTarget>
+<pageTarget type="normal" value="page_103" playOrder="94"><navLabel><text>103</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_103"/></pageTarget>
+<pageTarget type="normal" value="page_104" playOrder="95"><navLabel><text>104</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_104"/></pageTarget>
+<pageTarget type="normal" value="page_105" playOrder="96"><navLabel><text>105</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_105"/></pageTarget>
+<pageTarget type="normal" value="page_106" playOrder="97"><navLabel><text>106</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_106"/></pageTarget>
+<pageTarget type="normal" value="page_107" playOrder="98"><navLabel><text>107</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_107"/></pageTarget>
+<pageTarget type="normal" value="page_108" playOrder="99"><navLabel><text>108</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_108"/></pageTarget>
+<pageTarget type="normal" value="page_109" playOrder="100"><navLabel><text>109</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_109"/></pageTarget>
+<pageTarget type="normal" value="page_110" playOrder="101"><navLabel><text>110</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_110"/></pageTarget>
+<pageTarget type="normal" value="page_111" playOrder="102"><navLabel><text>111</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_111"/></pageTarget>
+<pageTarget type="normal" value="page_112" playOrder="103"><navLabel><text>112</text></navLabel><content src="Chp002_43-112_B9780323999663000118.xhtml#page_112"/></pageTarget>
+</pageList>
+</ncx>

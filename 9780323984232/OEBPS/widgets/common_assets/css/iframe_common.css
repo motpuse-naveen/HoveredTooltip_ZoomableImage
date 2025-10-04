@@ -1,0 +1,22 @@
+figure.zoompop{
+	margin: 0px;
+	margin-top: 30px;
+}
+figure.zoompop:hover,figure.zoompop:focus{
+	margin-top: 30px;
+}
+figure.zoompop:before {
+	content: "Click on Image to Zoom";
+	position: absolute;
+	top: -25px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	padding: 0px 5px 5px 5px;
+	font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #2C5E6D;
+}
+figure.zoompop img.pulse-effect{
+	transform: scale(1.01);
+}

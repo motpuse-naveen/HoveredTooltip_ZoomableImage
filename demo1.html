@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ribbon Tooltip Left</title>
+<style>
+/* Ribbon style */
+.ribbon {
+  position: relative;
+  display: inline-block;
+  padding: 5px 12px;
+  margin: 30px;
+  background: #3498db;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+}
+
+/* Ribbon pointer (right side triangle) */
+.ribbon::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 12px solid #3498db;
+}
+
+/* Tooltip box */
+.tooltip-box {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Tooltip arrow (pointing right -> since tooltip opens at left) */
+.tooltip-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent #333;
+}
+
+/* Tooltip arrow using CSS variable */
+.tooltip-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px;
+  border-style: solid;
+  pointer-events: none;
+  /* Default arrow points right */
+  right: -6px;
+  border-color: transparent transparent transparent #333;
+}
+
+/* Arrow pointing left */
+.tooltip-box.left::after {
+  right: auto;
+  left: -6px;
+  border-color: #333 transparent transparent transparent;
+}
+
+
+.tooltip-box[style*="--arrow-direction: right"]::after {
+  right: -6px;
+  border-color: transparent transparent transparent #333; /* arrow points right */
+}
+
+.tooltip-box[style*="--arrow-direction: left"]::after {
+  left: -6px;
+  border-color: #333 transparent transparent transparent; /* arrow points left */
+}
+
+</style>
+</head>
+<body>
+
+<a href="#" class="ribbon tooltip" data-tooltip="Tooltip text for 2.12">2.12</a>
+<a href="#" class="ribbon tooltip" data-tooltip="Another example tooltip">3.07</a>
+
+<div id="tooltip" class="tooltip-box"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+  const $tooltip = $('#tooltip');
+
+  $('.tooltip').on('mouseenter focus', function(){
+    const $target = $(this);
+    const text = $target.data('tooltip');
+    $tooltip.text(text).css({opacity: 1});
+
+    positionTooltip($target);
+  });
+
+  $('.tooltip').on('mouseleave blur', function(){
+    $tooltip.css({opacity: 0});
+  });
+
+  function positionTooltip($el) {
+    const rect = $el[0].getBoundingClientRect();
+    const tooltipWidth = $tooltip.outerWidth();
+    const tooltipHeight = $tooltip.outerHeight();
+    const padding = 8;
+
+    // Vertical center
+    let top = window.scrollY + rect.top + (rect.height/2) - (tooltipHeight/2);
+
+    // Default: left side
+    let left = window.scrollX + rect.left - tooltipWidth - padding;
+
+    $tooltip.removeClass('left'); // reset arrow direction
+
+    // Flip to right if not enough space
+    if (left < padding) {
+        left = window.scrollX + rect.right + padding;
+        $tooltip.addClass('left'); // arrow points left
+    }
+
+    // Prevent vertical overflow
+    if (top < padding) top = padding;
+    if (top + tooltipHeight > window.innerHeight) top = window.innerHeight - tooltipHeight - padding;
+
+    $tooltip.css({top, left});
+}
+
+});
+</script>
+
+</body>
+</html>

@@ -33,7 +33,7 @@ $(document).ready(function() {
         $tooltip.append($tooltipText, $tooltipGoBtnCnt);
 
         // Popover
-        var $popover = $('<div class="popover" role="dialog" aria-modal="false" aria-hidden="true" hidden="hidden"></div>')
+        var $popover = $('<div class="popover" role="dialog" aria-modal="false" aria-hidden="true"></div>')
             .attr("id", "popover-" + id)
             .css("width", hoveredObj.width);
         var $popText = $('<div class="popover-text"></div>').html(hoveredObj.content);
@@ -44,7 +44,8 @@ $(document).ready(function() {
 
         // Set ARIA attributes on link
         $link.attr({
-            "aria-labelledby": "tooltip-" + id,
+            "aria-describedby": "tooltip-" + id,
+            "aria-haspopup": "true",
             "aria-controls": "popover-" + id,
             "aria-expanded": "false"
         });
@@ -56,63 +57,55 @@ $(document).ready(function() {
         // Call direction function once on init
         setRibbonDirection($link);
 
+        // Tooltip: announce on hover/focus
         $link.on('mouseenter focus', function() {
-            $tooltip.addClass('show').attr("aria-hidden", "false").removeAttr("hidden");
-            var plainText = $('<div>').html(hoveredObj.content).text();
-            $ariaLive.text(plainText);
-            $link.attr("aria-expanded", "true");
+            $ariaLive.text(hoveredObj.content);
         });
-        
-        $link.on('mouseleave blur', function() {
-            $tooltip.removeClass('show').attr("aria-hidden", "true").attr("hidden","hidden");
-            $link.attr("aria-expanded", "false");
-        });
-        
+
         if (isTouch) {
-            $tooltip.attr("aria-hidden", "true").attr("hidden","hidden");
             $link.on('touchstart click', function(e) {
                 e.preventDefault();  // prevent default link navigation
         
                 var isVisible = $popover.is(':visible');
+        
                 // Hide all other popovers/tooltips
-                $('.popover').hide().attr("aria-hidden", "true").attr("hidden","hidden");
-                $('.tooltip').removeClass('show').attr("aria-hidden", "true").attr("hidden","hidden");
+                $('.popover').hide().attr("aria-hidden", "true");
+                $('.tooltip').hide();
                 $('.hovered-ribbon a').attr("aria-expanded", "false");
-
+        
                 if (!isVisible) {
-                    $popover.show().attr("aria-hidden", "false").removeAttr("hidden","hidden");
+                    $popover.show().attr("aria-hidden", "false");
                     $link.attr("aria-expanded", "true");
                     $popoverGoBtn.focus();
-                    //$ariaLive.text(hoveredObj.content);
-                    var plainText = $('<div>').html(hoveredObj.content).text();
-                    $ariaLive.text(plainText);
+                    $ariaLive.text(hoveredObj.content);
                 }
             });
         }
         
-        // Go To button navigates 
+                
+
+        // Go To button navigates
+        
         $tooltipGoBtn.on('click', function() {
             //window.location.href = $link.attr('href');
-            $tooltip.attr("aria-hidden", "true").attr("hidden","hidden");
-            $link.attr("aria-expanded", "false").focus();
         });
-
         $popoverGoBtn.on('click', function() {
             //window.location.href = $link.attr('href');
             $popover.hide().attr("aria-hidden", "true");
             $link.attr("aria-expanded", "false").focus();
         });
         
+
         // Close popover
         $closeBtn.on('click', function() {
-            $popover.hide().attr("aria-hidden", "true").attr("hidden","hidden");
+            $popover.hide().attr("aria-hidden", "true");
             $link.attr("aria-expanded", "false").focus();
         });
 
         // ESC to close popover (return focus only to active link)
         $(document).on('keydown', function(e) {
             if (e.key === "Escape" && $popover.is(':visible')) {
-                $popover.hide().attr("aria-hidden", "true").attr("hidden","hidden");
+                $popover.hide().attr("aria-hidden", "true");
                 $link.attr("aria-expanded", "false").focus();
             }
         });
@@ -147,6 +140,8 @@ function setRibbonDirection($link) {
 
     // Update parent class
     $link.parent().removeClass('ribbon-left ribbon-right').addClass(directionClass);
+
+
 
     if (directionClass === 'ribbon-left') {
         $tooltip.removeClass('tooltip-right').addClass('tooltip-left');

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // Check if the ARIA live region exists; if not, create it
+    // Create ARIA live region if it doesn't exist
     var $ariaLive = $('#ribbon-aria-live');
     if ($ariaLive.length === 0) {
         $ariaLive = $('<div id="ribbon-aria-live" aria-live="polite" aria-atomic="true"></div>')
@@ -13,27 +13,34 @@ $(document).ready(function() {
         $('body').append($ariaLive);
     }
 
+    var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    // Initialize ribbons
     $('.hovered-ribbon a').each(function() {
         var $link = $(this);
         var id = $link.attr('id');
-        var hoveredObj = HoveredJSONData[id] || {content: "No content", width: "auto"};
+        var $linkhref = $link.attr('href');
+        var $linktext = $link.text();
+        var hoveredObj = HoveredJSONData[id] || {content: "No content", width: "130px"};
 
         // Tooltip
         var $tooltip = $('<div class="tooltip" role="tooltip"></div>')
             .attr("id", "tooltip-" + id)
-            .css("max-width", hoveredObj.width)
-            .html(hoveredObj.content);
+            .css("width", hoveredObj.width);
+        var $tooltipText = $('<div class="tooltip-text"></div>').html(hoveredObj.content);
+        var $tooltipGoBtn = $(`<a class="goto-btn">${$linktext}</a>`).attr("href", $linkhref);
+        var $tooltipGoBtnCnt = $('<div class="btn-cont"></div>').append($tooltipGoBtn);
+        $tooltip.append($tooltipText, $tooltipGoBtnCnt);
 
         // Popover
         var $popover = $('<div class="popover" role="dialog" aria-modal="false" aria-hidden="true"></div>')
             .attr("id", "popover-" + id)
-            .css("max-width", hoveredObj.width);
-
+            .css("width", hoveredObj.width);
         var $popText = $('<div class="popover-text"></div>').html(hoveredObj.content);
-        var $goBtn = $('<button class="goto-btn">Go To</button>');
+        var $popoverGoBtn = $(`<a class="goto-btn">${$linktext}</a>`).attr("href", $linkhref);
         var $closeBtn = $('<button class="close-btn">Close</button>');
-
-        $popover.append($popText, $goBtn, $closeBtn);
+        var $BtnCnt = $('<div class="btn-cont"></div>').append($popoverGoBtn, $closeBtn);
+        $popover.append($popText, $BtnCnt);
 
         // Set ARIA attributes on link
         $link.attr({
@@ -42,42 +49,52 @@ $(document).ready(function() {
             "aria-controls": "popover-" + id,
             "aria-expanded": "false"
         });
+        $link.addClass("hovered-link")
 
         // Append tooltip and popover
         $link.parent().append($tooltip, $popover);
 
-        // Desktop: tooltip hover/focus
+        // Call direction function once on init
+        setRibbonDirection($link);
+
+        // Tooltip: announce on hover/focus
         $link.on('mouseenter focus', function() {
-            $ariaLive.text(hoveredObj.content); // announce tooltip
+            $ariaLive.text(hoveredObj.content);
         });
 
-        // Touch: click toggles popover
-        $link.on('click keydown', function(e) {
-            var isTouch = window.matchMedia("(hover: none)").matches;
-
-            if (isTouch && (e.type === "click" || (e.type === "keydown" && (e.key === "Enter" || e.key === " ")))) {
-                e.preventDefault();
+        if (isTouch) {
+            $link.on('touchstart click', function(e) {
+                e.preventDefault();  // prevent default link navigation
+        
                 var isVisible = $popover.is(':visible');
-
-                // Hide all popovers first
+        
+                // Hide all other popovers/tooltips
                 $('.popover').hide().attr("aria-hidden", "true");
+                $('.tooltip').hide();
                 $('.hovered-ribbon a').attr("aria-expanded", "false");
-
+        
                 if (!isVisible) {
                     $popover.show().attr("aria-hidden", "false");
                     $link.attr("aria-expanded", "true");
-                    $goBtn.focus();
-
-                    // ARIA announcement
+                    $popoverGoBtn.focus();
                     $ariaLive.text(hoveredObj.content);
                 }
-            }
-        });
+            });
+        }
+        
+                
 
-        // "Go To" button navigates
-        $goBtn.on('click', function() {
-            window.location.href = $link.attr('href');
+        // Go To button navigates
+        
+        $tooltipGoBtn.on('click', function() {
+            //window.location.href = $link.attr('href');
         });
+        $popoverGoBtn.on('click', function() {
+            //window.location.href = $link.attr('href');
+            $popover.hide().attr("aria-hidden", "true");
+            $link.attr("aria-expanded", "false").focus();
+        });
+        
 
         // Close popover
         $closeBtn.on('click', function() {
@@ -85,12 +102,52 @@ $(document).ready(function() {
             $link.attr("aria-expanded", "false").focus();
         });
 
-        // ESC to close
+        // ESC to close popover (return focus only to active link)
         $(document).on('keydown', function(e) {
-            if (e.key === "Escape") {
-                $('.popover').hide().attr("aria-hidden", "true");
-                $('.hovered-ribbon a').attr("aria-expanded", "false").focus();
+            if (e.key === "Escape" && $popover.is(':visible')) {
+                $popover.hide().attr("aria-hidden", "true");
+                $link.attr("aria-expanded", "false").focus();
             }
         });
     });
+
+    // Update ribbon directions on resize/orientation change
+    let resizeTimeout;
+    $(window).on('resize orientationchange', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            $('.hovered-ribbon a').each(function() {
+                setRibbonDirection($(this));
+            });
+        }, 100); // debounce
+    });
+
 });
+
+// Function to set ribbon-left/ribbon-right dynamically
+function setRibbonDirection($link) {
+    var offset = $link.offset();
+    var linkWidth = $link.outerWidth();
+    var viewportWidth = $(window).width();
+    // Update tooltip/popover arrow classes
+    var $tooltip = $link.siblings('.tooltip');
+    var $popover = $link.siblings('.popover');
+    var directionClass = 'ribbon-left';
+    //if ((offset.left + linkWidth + 20) > viewportWidth / 2) {
+    if ((offset.left) > ($tooltip.width() + 20)) {
+        directionClass = 'ribbon-right';
+    }
+
+    // Update parent class
+    $link.parent().removeClass('ribbon-left ribbon-right').addClass(directionClass);
+
+
+
+    if (directionClass === 'ribbon-left') {
+        $tooltip.removeClass('tooltip-right').addClass('tooltip-left');
+        $popover.removeClass('popover-right').addClass('popover-left');
+    } else {
+        $tooltip.removeClass('tooltip-left').addClass('tooltip-right');
+        $popover.removeClass('popover-left').addClass('popover-right');
+    }
+}

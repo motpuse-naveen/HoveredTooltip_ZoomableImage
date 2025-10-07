@@ -178,6 +178,12 @@
     <item id="raj15" href="widgets/Poptip/script/poptip.js" media-type="text/javascript"/>
     <item id="raj16" href="widgets/Poptip/script/jquery-3.6.0.min.js" media-type="text/javascript"/>
     <item id="raj17" href="widgets/Poptip/script/transcription.js" media-type="text/javascript"/>
+
+    <item id="hoveredtooltip01" href="widgets/hoveredTooltip/core/hoveredTooltip.js" media-type="text/javascript"/>
+    <item id="hoveredtooltip02" href="widgets/hoveredTooltip/core/hoveredTooltip.css" media-type="text/css"/>
+    <item id="hoveredtooltip03" href="widgets/hoveredTooltip/libs/jquery-3.6.0.min.js" media-type="text/javascript"/>
+    <item id="hoveredtooltip04" href="widgets/hoveredTooltip/data/hoveredTooltip-data.js" media-type="text/javascript"/>
+
     <item id="cover" href="Cover.xhtml" media-type="application/xhtml+xml"/>
     <item id="cover_image" href="images/9780323984232/9780323984232_FC.jpg" media-type="image/jpeg" properties="cover-image"/>
     <item id="B9780323999663000027" href="Title_page.xhtml" media-type="application/xhtml+xml"/>

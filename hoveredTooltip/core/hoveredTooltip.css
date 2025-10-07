@@ -123,11 +123,13 @@
 
 
 /* Immediate next sibling */
+/*
 .hovered-ribbon:hover .tooltip{
     opacity: 1;
     display: block;
     pointer-events: auto;
 }
+
 .hovered-ribbon a:focus + .tooltip {
     opacity: 1;
     display: block;
@@ -138,7 +140,7 @@
     display: block;
     pointer-events: auto;
 }
-
+*/
 .hovered-ribbon .tooltip.show {
     display: block;
     opacity: 1;

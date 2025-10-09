@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>plus</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8.0001,6.0003 L8.0001,1.0003 C8.0001,0.4473 7.5531,0.0003 7.0001,0.0003 C6.4471,0.0003 6.0001,0.4473 6.0001,1.0003 L6.0001,6.0003 L1.0001,6.0003 C0.4471,6.0003 0.0001,6.4473 0.0001,7.0003 C0.0001,7.5533 0.4471,8.0003 1.0001,8.0003 L6.0001,8.0003 L6.0001,13.0003 C6.0001,13.5533 6.4471,14.0003 7.0001,14.0003 C7.5531,14.0003 8.0001,13.5533 8.0001,13.0003 L8.0001,8.0003 L13.0001,8.0003 C13.5521,8.0003 14.0001,7.5533 14.0001,7.0003 C14.0001,6.4473 13.5521,6.0003 13.0001,6.0003 L8.0001,6.0003 Z" id="path-1"></path>
+    </defs>
+    <g id="mocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="hide-show-student-closed" transform="translate(-826.000000, -187.000000)">
+            <g id="plus" transform="translate(826.000000, 187.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Fill-1" fill="#000000" xlink:href="#path-1"></use>
+                <g id="Colors-ocean-7" mask="url(#mask-2)" fill="#0266AD">
+                    <rect id="Rectangle-3" x="0" y="0" width="14" height="14"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>i-circle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dialogs" transform="translate(-496.000000, -785.000000)" fill="#FFFFFF">
+            <g id="Basic-Toast-w-X" transform="translate(60.000000, 772.000000)">
+                <g id="basic-with-x" transform="translate(423.000000, 0.000000)">
+                    <g id="i-circle" transform="translate(13.000000, 13.000000)">
+                        <g id="Page-2">
+                            <path d="M9,13.75 L9,13.75 C8.447,13.75 8,13.303 8,12.75 L8,8.75 C8,8.197 8.447,7.75 9,7.75 C9.553,7.75 10,8.197 10,8.75 L10,12.75 C10,13.303 9.553,13.75 9,13.75" id="Fill-1"></path>
+                            <path d="M9,0 C4.029,0 0,4.029 0,9 C0,13.971 4.029,18 9,18 C13.971,18 18,13.971 18,9 C18,4.029 13.971,0 9,0 M9,2 C12.859,2 16,5.141 16,9 C16,12.859 12.859,16 9,16 C5.141,16 2,12.859 2,9 C2,5.141 5.141,2 9,2" id="Fill-3"></path>
+                            <path d="M7.75,5.5 C7.75,4.81 8.31,4.25 9,4.25 C9.69,4.25 10.25,4.81 10.25,5.5 C10.25,6.19 9.69,6.75 9,6.75 C8.31,6.75 7.75,6.19 7.75,5.5" id="Fill-5"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

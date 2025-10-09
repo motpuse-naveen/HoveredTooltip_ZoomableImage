@@ -19,6 +19,9 @@
 <link rel="stylesheet" type="text/css" href="widgets/hoveredTooltip/core/hoveredTooltip.css"/>
 <script type="text/javascript" src="widgets/hoveredTooltip/core/hoveredTooltip.js"/>
 
+<script type="text/javascript" src="widgets/zoomableFigures/core/zoomableFigure.js"/>
+<link rel="stylesheet" type="text/css" href="widgets/zoomableFigures/core/zoomableFigure.css"/>
+
 </head>
 <body>
 <main>
@@ -212,7 +215,8 @@
 <p class="b1title">Parse trees for <span class="inlinecode">slope * x + intercept</span></p>
 <div>
 <p id="p0240" class="b1textfl">A parse tree for our example expression appears in Figure <a href="#f0060" id="cf0170">2.1</a>. This tree is not unique. At the second level of the tree, we could have chosen to turn the operator into a <span class="inlinecode">*</span> instead of a <span class="inlinecode">+</span>, and to further expand the expression on the right, rather than the one on the left (see Figure <a href="#f0065" id="cf0175">2.2</a>). A grammar that allows the construction of more than one parse tree for some string of terminals is said to be <em>ambiguous</em>. Ambiguity turns out to be a problem when trying to build a parser: it requires some extra mechanism to drive a choice between equally acceptable alternatives. &#x2003;&#x25A0;</p>
-<div class="pageavoid"><figure class="fig" id="f0060"><img src="images/B9780323999663000118/gr001.png" alt="Figure 2.1"/><figcaption class="figleg"><span class="fignum"><a href="#cf0170">Figure 2.1</a></span> <b>Parse tree for <span class="inlinecode">slope * x + intercept</span></b> <span class="sansserif">(grammar in Example 2.4).</span></figcaption></figure>
+<div class="pageavoid">
+  <figure class="fig" id="f0060"><img src="images/B9780323999663000118/gr001.png" alt="Figure 2.1"/><figcaption class="figleg"><span class="fignum"><a href="#cf0170">Figure 2.1</a></span> <b>Parse tree for <span class="inlinecode">slope * x + intercept</span></b> <span class="sansserif">(grammar in Example 2.4).</span></figcaption></figure>
 </div>
 <div class="pageavoid"><figure class="fig" id="f0065"><img src="images/B9780323999663000118/gr002.png" alt="Figure 2.2"/><figcaption class="figleg"><span class="fignum"><a href="#cf0175">Figure 2.2</a></span> <b>Alternative (less desirable) parse tree for <span class="inlinecode">slope * x + intercept</span></b> (grammar in Example 2.4). The fact that more than one tree exists implies that our grammar is ambiguous.</figcaption></figure>
 </div></div>
@@ -391,7 +395,11 @@
 <div>
 <p id="p0490" class="b1textfl">One of the chief ways in which a scanner differs from a formal DFA is that it <em>identifies</em> tokens in addition to recognizing them. That is, it not only determines whether characters constitute a valid token; it also indicates <em>which one</em>. In practice, this means that it must have separate final states for every kind of token. We glossed over this issue in our RE-to-DFA constructions.</p>
 <p id="p0495" class="b1text">To build a scanner for a language with <em>n</em> different kinds of tokens, we begin with an NFA of the sort suggested in the figure here. Given NFAs <span class="hiddenClass"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>M</mi></mrow><mrow><mi>i</mi></mrow></msub><mo>,</mo><mn>1</mn><mspace width="0.2em"/><mo>&#x2264;</mo><mspace width="0.2em"/><mi>i</mi><mspace width="0.2em"/><mo>&#x2264;</mo><mspace width="0.2em"/><mi>n</mi></math><!--<mml:math><mml:msub><mml:mrow><mml:mi>M</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mn>1</mml:mn><mml:mspace width="0.2em"/><mml:mo>≤</mml:mo><mml:mspace width="0.2em"/><mml:mi>i</mml:mi><mml:mspace width="0.2em"/><mml:mo>≤</mml:mo><mml:mspace width="0.2em"/><mml:mi>n</mml:mi></mml:math>--></span><span><img alt="Equation" class="icon1" src="images/B9780323999663000118/si5.png"/></span> (one automaton for each kind of token), we create a new start state with epsilon transitions to the start states of the <span class="hiddenClass"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>M</mi></mrow><mrow><mi>i</mi></mrow></msub></math><!--<mml:math><mml:msub><mml:mrow><mml:mi>M</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:math>--></span><span><img alt="Equation" class="icon1" src="images/B9780323999663000118/si6.png"/></span>s. In contrast to the alternation construction of Figure <a href="#f0105" id="cf0300">2.7</a>(c), however, we do <em>not</em> create a single final state; we keep the existing ones, each labeled by the token for which it is final.</p>
-<p id="p0500" class="b1text"><img alt="Image 15" src="images/B9780323999663000118/fx015.png"/></p>
+<p id="p0500" class="b1text">
+  <figure id="f013000">
+    <img alt="Image 15" src="images/B9780323999663000118/fx015.png"/>
+  </figure>
+</p>
 <p id="p0505" class="b1text">We then apply the NFA-to-DFA construction as before. (If final states for different tokens in the NFA ever end up in the same state of the DFA, then we have ambiguous token definitions. These may be resolved by changing the regular expressions from which the NFAs were derived, or by wrapping additional logic around the DFA.)</p>
 <p id="p0510" class="b1text">In the DFA minimization construction, instead of starting with two equivalence classes (final and nonfinal states), we begin with <span class="hiddenClass"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo linebreak="goodbreak" linebreakstyle="after">+</mo><mn>1</mn></math><!--<mml:math><mml:mi>n</mml:mi><mml:mo linebreak="goodbreak" linebreakstyle="after">+</mml:mo><mml:mn>1</mml:mn></mml:math>--></span><span><img alt="Equation" class="icon1" src="images/B9780323999663000118/si7.png"/></span>, including a separate class for final states for each of the kinds of token. Exercise <a href="#o0315" id="cf0305">2.5</a> explores this construction for a scanner that recognizes both the <em>integer</em> and <em>decimal</em> types of Example <a href="#enun0025" id="cf0310">2.3</a>.</p>
 </div></div>

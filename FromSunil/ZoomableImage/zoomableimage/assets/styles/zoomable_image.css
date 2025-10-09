@@ -1,0 +1,275 @@
+/* Zoomable Image Activity Styles */
+
+.zoomable-image-activity {
+  font-family: 'Fira Sans', Arial, sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.zoomable-image-container {
+  position: relative;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+}
+
+.zoomable-image-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.zoomable-image-description {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  overflow: hidden;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: #fff;
+  cursor: grab;
+}
+
+.image-container.dragging {
+  cursor: grabbing;
+}
+
+.zoomable-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.zoom-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.zoom-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.zoom-btn:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.zoom-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.zoom-btn:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.zoom-in-btn::before {
+  content: '+';
+}
+
+.zoom-out-btn::before {
+  content: '−';
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.close-modal:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.close-modal:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.close-modal::before {
+  content: '×';
+}
+
+.zoom-info {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.image-trigger {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.image-trigger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.image-trigger:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.trigger-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-instructions {
+  margin-top: 15px;
+  padding: 15px;
+  background: #e7f3ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 6px;
+  color: #0056b3;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Accessibility improvements */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .image-container {
+    width: 95%;
+    height: 70%;
+  }
+  
+  .zoom-controls {
+    right: 10px;
+    top: 10px;
+  }
+  
+  .close-modal {
+    left: 10px;
+    top: 10px;
+  }
+  
+  .zoom-btn,
+  .close-modal {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .zoom-btn,
+  .close-modal {
+    background: #fff;
+    border: 2px solid #000;
+  }
+  
+  .image-modal {
+    background-color: #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .zoomable-image,
+  .zoom-btn,
+  .close-modal,
+  .image-trigger {
+    transition: none;
+  }
+}

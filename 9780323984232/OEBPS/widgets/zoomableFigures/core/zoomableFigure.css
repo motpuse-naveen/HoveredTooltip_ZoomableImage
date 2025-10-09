@@ -1,0 +1,343 @@
+/* Modal overlay */
+.figure-modal {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+
+/* Modal content */
+.figure-modal .modal-content {
+  position: relative;
+}
+
+/* Image inside modal */
+.figure-modal .zoomable-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+
+/* Zoom controls */
+.figure-modal .zoom-controls {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  z-index: 10;
+}
+
+.figure-modal .pan-controls {
+  position: absolute;
+  top: 10px;           /* distance from bottom of modal */
+  left: 50%;              /* start at 50% horizontal */
+  transform: translateX(-50%); /* center horizontally */
+  display: flex;
+  gap: 10px;              /* spacing between buttons */
+  z-index: 10;
+}
+
+
+/* Zoom level display */
+.figure-modal .zoom-info {  
+  background: rgba(255, 255, 255);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.figure-modal.show {
+  display: flex; /* instead of inline-block or block */
+}
+
+.figure-modal .zoomable-figure {
+  transform-origin: center center;
+}
+
+.img-wrapper{
+  position:relative; 
+  display:inline-block;
+  width: 100%;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container {
+  position: relative;
+  width: 86%;
+  height: 86%;
+  overflow: hidden;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: #fff;
+  cursor: grab;
+  padding: 5px 10px;
+  margin-top: 50px;
+}
+
+.image-container.dragging {
+  cursor: grabbing;
+}
+
+
+
+.figure-modal .zoom-btn, .zoomable-figure .zoom-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Trigger button on figure */
+figure.zoomable-figure {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+  unicode-bidi: isolate;
+}
+.zoomable-figure .figure-zoom-btn {
+  position: absolute;
+  left: -40px;
+  top: 0px;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: url(images/zoom-icon.svg);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scaleX(-1);
+}
+
+
+/* Zoom in button */
+.figure-modal .zoom-in-btn {
+  background-image: url('images/zoom-in.svg');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Zoom out button */
+.figure-modal .zoom-out-btn {
+  background-image: url('images/zoom-out.svg');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Zoom in button */
+.figure-modal .zoom-reset-btn {
+  background-image: url('images/zoom-reset.svg');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.figure-modal .zoom-btn:hover, .zoomable-figure .zoom-btn:hover {
+  transform: scale(1.1);
+}
+
+.figure-modal .zoom-btn:disabled, .zoomable-figure .zoom-btn:disabled,
+.figure-modal .zoom-btn.disabled, .zoomable-figure .zoom-btn.disabled  {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.figure-modal .zoom-btn:focus, .zoomable-figure .zoom-btn:focus {
+  transform: scale(1.1);
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.zoomable-figure .figure-zoom-btn:hover, .zoomable-figure .figure-zoom-btn:focus {
+  transform: scaleX(-1) scale(1.1);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Close button */
+.figure-modal .close-modal {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 10;
+}
+
+.figure-modal .panleft {
+  background-image: url(images/left-direction.svg);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.figure-modal .panright {
+  background-image: url(images/left-direction.svg);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scaleX(-1);
+}
+.figure-modal .panright:hover, .figure-modal .panright:focus{
+  transform: scaleX(-1) scale(1.1);
+}
+
+.figure-modal .pantop {
+  background-image: url(images/bottom-direction.svg);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scaleY(-1);
+}
+.figure-modal .pantop:hover, .figure-modal .pantop:focus  {
+  transform: scaleY(-1) scale(1.1);
+}
+
+.figure-modal .panbottom {
+  background-image: url(images/bottom-direction.svg);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.figure-modal .close-modal::before {
+  content: '×';
+}
+
+.image-trigger {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.image-trigger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.image-trigger:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.trigger-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-instructions {
+  margin-top: 15px;
+  padding: 15px;
+  background: #e7f3ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 6px;
+  color: #0056b3;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Accessibility improvements */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .image-container {
+    width: 95%;
+  }
+  
+  .zoom-controls {
+    right: 10px;
+    top: 10px;
+  }
+  
+  .close-modal {
+    left: 10px;
+    top: 10px;
+  }
+  
+  .zoom-btn,
+  .close-modal {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .figure-modal .pan-controls{
+    left:165px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .zoom-btn,
+  .close-modal {
+    background: #fff;
+    border: 2px solid #000;
+  }
+  
+  .figure-modal {
+    background-color: #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .zoomable-figure,
+  .zoom-btn,
+  .close-modal,
+  .image-trigger {
+    transition: none;
+  }
+}
+
+
+

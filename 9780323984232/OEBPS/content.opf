@@ -184,6 +184,16 @@
     <item id="hoveredtooltip03" href="widgets/hoveredTooltip/libs/jquery-3.6.0.min.js" media-type="text/javascript"/>
     <item id="hoveredtooltip04" href="widgets/hoveredTooltip/data/hoveredTooltip-data.js" media-type="text/javascript"/>
 
+    <item id="zoomableFigures01" href="widgets/zoomableFigures/libs/jquery-3.6.0.min.js" media-type="text/javascript"/>
+    <item id="zoomableFigures02" href="widgets/zoomableFigures/core/zoomableFigure.js" media-type="text/javascript"/>
+    <item id="zoomableFigures03" href="widgets/zoomableFigures/core/zoomableFigure.css" media-type="text/css"/>
+    <item id="zoomableFigures04" href="widgets/zoomableFigures/core/images/zoom-reset.svg" media-type="image/svg+xml"/>
+    <item id="zoomableFigures05" href="widgets/zoomableFigures/core/images/zoom-out.svg" media-type="image/svg+xml"/>
+    <item id="zoomableFigures06" href="widgets/zoomableFigures/core/images/zoom-in.svg" media-type="image/svg+xml"/>
+    <item id="zoomableFigures07" href="widgets/zoomableFigures/core/images/zoom-icon.svg" media-type="image/svg+xml"/>
+    <item id="zoomableFigures08" href="widgets/zoomableFigures/core/images/left-direction.svg" media-type="image/svg+xml"/>
+    <item id="zoomableFigures09" href="widgets/zoomableFigures/core/images/bottom-direction.svg" media-type="image/svg+xml"/>
+
     <item id="cover" href="Cover.xhtml" media-type="application/xhtml+xml"/>
     <item id="cover_image" href="images/9780323984232/9780323984232_FC.jpg" media-type="image/jpeg" properties="cover-image"/>
     <item id="B9780323999663000027" href="Title_page.xhtml" media-type="application/xhtml+xml"/>

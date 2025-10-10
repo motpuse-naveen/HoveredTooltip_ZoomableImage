@@ -34,21 +34,21 @@
 /* Zoom controls */
 .figure-modal .zoom-controls {
   position: absolute;
-  top: 10px;
-  right: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  z-index: 10;
-}
-
-.figure-modal .pan-controls {
-  position: absolute;
   top: 10px;           /* distance from bottom of modal */
   left: 50%;              /* start at 50% horizontal */
   transform: translateX(-50%); /* center horizontally */
   display: flex;
   gap: 10px;              /* spacing between buttons */
+  z-index: 10;
+}
+
+.figure-modal .pan-controls {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
   z-index: 10;
 }
 
@@ -137,7 +137,7 @@ figure.zoomable-figure {
   top: 0px;
   background-color: rgba(255, 255, 255, 0.6);
   background-image: url(images/zoom-icon.svg);
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
   transform: scaleX(-1);
@@ -147,7 +147,7 @@ figure.zoomable-figure {
 /* Zoom in button */
 .figure-modal .zoom-in-btn {
   background-image: url('images/zoom-in.svg');
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -155,7 +155,7 @@ figure.zoomable-figure {
 /* Zoom out button */
 .figure-modal .zoom-out-btn {
   background-image: url('images/zoom-out.svg');
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -163,7 +163,7 @@ figure.zoomable-figure {
 /* Zoom in button */
 .figure-modal .zoom-reset-btn {
   background-image: url('images/zoom-reset.svg');
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -181,7 +181,7 @@ figure.zoomable-figure {
 
 .figure-modal .zoom-btn:focus, .zoomable-figure .zoom-btn:focus {
   transform: scale(1.1);
-  outline: 2px solid #007bff;
+  outline: 2px solid #EB6500;
   outline-offset: 2px;
 }
 
@@ -200,14 +200,14 @@ figure.zoomable-figure {
 
 .figure-modal .panleft {
   background-image: url(images/left-direction.svg);
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .figure-modal .panright {
   background-image: url(images/left-direction.svg);
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
   transform: scaleX(-1);
@@ -218,7 +218,7 @@ figure.zoomable-figure {
 
 .figure-modal .pantop {
   background-image: url(images/bottom-direction.svg);
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
   transform: scaleY(-1);
@@ -229,33 +229,13 @@ figure.zoomable-figure {
 
 .figure-modal .panbottom {
   background-image: url(images/bottom-direction.svg);
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .figure-modal .close-modal::before {
   content: '×';
-}
-
-.image-trigger {
-  display: inline-block;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 2px solid #007bff;
-  border-radius: 8px;
-  overflow: hidden;
-  max-width: 300px;
-}
-
-.image-trigger:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-}
-
-.image-trigger:focus {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
 }
 
 .trigger-image {
@@ -288,13 +268,19 @@ figure.zoomable-figure {
   border: 0 !important;
 }
 
+:focus-visible {
+  outline: 2px solid #EB6500;   /* High-contrast blue */
+  outline-offset: 2px;
+  border-radius: 4px;           /* optional, matches button style */
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .image-container {
     width: 95%;
   }
   
-  .zoom-controls {
+  .pan-controls {
     right: 10px;
     top: 10px;
   }
@@ -311,8 +297,8 @@ figure.zoomable-figure {
     font-size: 20px;
   }
 
-  .figure-modal .pan-controls{
-    left:165px;
+  .figure-modal .zoom-controls{
+    left:205px;
   }
 }
 
@@ -333,8 +319,8 @@ figure.zoomable-figure {
 @media (prefers-reduced-motion: reduce) {
   .zoomable-figure,
   .zoom-btn,
-  .close-modal,
-  .image-trigger {
+  .close-modal
+   {
     transition: none;
   }
 }

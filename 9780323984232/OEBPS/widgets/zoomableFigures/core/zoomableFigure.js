@@ -32,7 +32,7 @@ class ZoomableFigure {
 
       // Add zoom button if not present
       if ($wrapper.find('.figure-zoom-btn').length === 0) {
-        const $btn = $('<button class="zoom-btn figure-zoom-btn" aria-label="Open image in zoomable modal" title="Open image in zoomable modal"></button>');
+        const $btn = $('<button class="zoom-btn figure-zoom-btn" aria-label="Open Image Viewer" title="Open Image Viewer"></button>');
         $wrapper.append($btn);
         $btn.on('click', () => this.openModal($img));
       }
@@ -43,26 +43,26 @@ class ZoomableFigure {
     let $modal = $('#zoomableFigureModal');
     if ($modal.length === 0) {
       $modal = $(`
-        <div class="figure-modal" id="zoomableFigureModal" tabindex="0" role="dialog" aria-modal="true" aria-label="Zoomable image viewer">
-          <button class="zoom-btn close-modal" aria-label="Close" title="Exit zoom view"></button>
+        <div class="figure-modal" id="zoomableFigureModal" role="dialog" aria-modal="true" aria-label="Zoomable image viewer">
+          <button tabindex="0" class="zoom-btn close-modal" aria-label="Close Image Viewer" title="Close Image Viewer"></button>
           <div class="modal-content">            
             <div class="image-container" style="overflow:hidden;">
               <img class="zoomable-image" style="transform: scale(1) translate(0px,0px); cursor: grab;" />
             </div>                     
-          </div>
-          <div class="pan-controls" role="group" aria-label="Image pan controls">
-            <button class="zoom-btn panleft" aria-label="Pan image left" title="Pan Left"></button>
-            <button class="zoom-btn panright" aria-label="Pan image right" title="Pan Right"></button>
-            <button class="zoom-btn pantop" aria-label="Pan image up" title="Pan Up"></button>
-            <button class="zoom-btn panbottom" aria-label="Pan image down" title="Pan Down"></button>
-          </div>
-          <div class="zoom-controls" role="group" aria-label="Image zoom controls">
-              <div id="pan-status" class="visually-hidden" aria-live="polite"></div>
-              <div class="zoom-info" aria-live="polite">Zoom: <span class="zoom-level">100%</span></div>
-              <button class="zoom-btn zoom-in-btn" aria-label="Zoom in" title="Zoom In (+)"></button>
-              <button class="zoom-btn zoom-out-btn" aria-label="Zoom out" title="Zoom Out (-)"></button>
-              <button class="zoom-btn zoom-reset-btn" disabled="true"  aria-label="Reset Zoom" title="Reset Zoom"></button>
-          </div>   
+          </div>          
+          <div class="zoom-controls" role="group" aria-label="Zoom controls">              
+              <div class="zoom-info zoom-level">Zoom: 100%</div>              
+              <button tabindex="0" class="zoom-btn zoom-in-btn" aria-label="Zoom In" title="Zoom In"></button>
+              <button tabindex="0" class="zoom-btn zoom-out-btn" aria-label="Zoom Out" title="Zoom Out"></button>
+              <button tabindex="0" class="zoom-btn zoom-reset-btn" disabled="true"  aria-label="Reset Zoom" title="Reset Zoom"></button>
+          </div>  
+          <div class="pan-controls" role="group" aria-label="Pan controls">
+            <div id="pan-status" class="visually-hidden" aria-live="polite"></div>
+            <button tabindex="0" class="zoom-btn panleft" aria-label="Pan Left" title="Pan Left"></button>
+            <button tabindex="0" class="zoom-btn panright" aria-label="Pan Right" title="Pan Right"></button>
+            <button tabindex="0" class="zoom-btn pantop" aria-label="Pan Up" title="Pan Up"></button>
+            <button tabindex="0" class="zoom-btn panbottom" aria-label="Pan Down" title="Pan Down"></button>
+          </div> 
         </div>
       `);
       $('body').append($modal);
@@ -76,20 +76,41 @@ class ZoomableFigure {
     const $figure = $img.closest('figure');
     const figureId = $figure.attr('id')
     $modal.attr("modalfor", figureId)
+    $modal.removeAttr("aria-hidden")
 
     const $modalImg = $modal.find('.zoomable-image');
     $modalImg.attr('src', $img.attr('src')).attr('alt', $img.attr('alt'));
   
-    $modal.css('display', 'flex').attr('tabindex', 0).focus();
+    $modal.css('display', 'flex')//.attr('tabindex', 0).focus();
     $('body').css('overflow', 'hidden');
-    this.resetZoom($modal);
+    //$('body').find("main").attr("aria-hidden","true");
+    this.resetZoom($modal, true);
+    this.setMainHidden(true);
   }
   
   // Update zoom button states
-  updateZoomButtons($modal) {
+  updateZoomButtons($modal, currentAction) {
     const $zoomIn = $modal.find('.zoom-in-btn');
     const $zoomOut = $modal.find('.zoom-out-btn');
     const $zoomreset = $modal.find('.zoom-reset-btn');
+    const $closemodal = $modal.find('.close-modal');
+
+    if(currentAction=="zoomout"){
+      if(this.currentZoom <= this.minZoom){
+        $zoomIn.focus();
+      }      
+    }
+    else if(currentAction=="zoomin"){
+      if(this.currentZoom >= this.maxZoom){
+        $zoomOut.focus();
+      }      
+    }
+    else if(currentAction=="reset"){
+      $zoomOut.focus();
+    }
+    else if(currentAction == "openDialog"){
+      $closemodal.focus();
+    }
     
     $zoomIn.prop('disabled', this.currentZoom >= this.maxZoom);
     $zoomOut.prop('disabled', this.currentZoom <= this.minZoom);
@@ -99,31 +120,39 @@ class ZoomableFigure {
   closeModal($modal) {
     $modal.hide();
     $modal.attr('aria-hidden', 'true');
+    this.setMainHidden(false);
     
     // Restore body scrolling
     $('body').css('overflow', '');
     
     // Return focus to trigger
-    var targetFigure = $modal.attr("modalfor")
+    
+    var targetFigureId = $modal.attr("modalfor")
+    const targetFigure = $("#" + targetFigureId);
     targetFigure.find(".figure-zoom-btn").focus();
-    $('body').css('overflow', '');
+    
   }
 
-  resetZoom($modal) {
+  resetZoom($modal, isOnOpenDialog) {
     this.currentZoom = this.initialZoom;
     this.translateX = 0;
     this.translateY = 0;
     const $img = $modal.find('.zoomable-image');
     $img.css('transform', `scale(${this.currentZoom}) translate(0px,0px)`);
-    $modal.find('.zoom-level').text(`${Math.round(this.currentZoom*100)}%`);
-    this.updateZoomButtons($modal);
+    $modal.find('.zoom-level').text(`Zoom: ${Math.round(this.currentZoom*100)}%`);
+    this.announceZoomState();
+    var currentAction = "reset";
+    if(isOnOpenDialog){
+      currentAction = "openDialog";
+    }
+    this.updateZoomButtons($modal, currentAction);
   }
 
   zoomIn($modal) {
     if (this.currentZoom < this.maxZoom) {
       this.currentZoom = Math.min(this.currentZoom + this.zoomStep, this.maxZoom);
       this.updateTransform($modal);
-      this.updateZoomButtons($modal);
+      this.updateZoomButtons($modal,"zoomin");
     }
   }
 
@@ -131,14 +160,15 @@ class ZoomableFigure {
     if (this.currentZoom > this.minZoom) {
       this.currentZoom = Math.max(this.currentZoom - this.zoomStep, this.minZoom);
       this.updateTransform($modal);
-      this.updateZoomButtons($modal);
+      this.updateZoomButtons($modal,"zoomout");
     }
   }
 
   updateTransform($modal) {
     const $img = $modal.find('.zoomable-image');
     $img.css('transform', `scale(${this.currentZoom}) translate(${this.translateX}px,${this.translateY}px)`);
-    $modal.find('.zoom-level').text(`${Math.round(this.currentZoom*100)}%`);
+    $modal.find('.zoom-level').text(`Zoom: ${Math.round(this.currentZoom*100)}%`);
+    this.announceZoomState();
   }
 
   attachModalEvents($modal) {
@@ -200,18 +230,26 @@ class ZoomableFigure {
         case 'ArrowDown': this.panDown($modal); break;
       }
 
-      if (e.key === 'Tab') {
-        const focusable = $modal.find('button, [tabindex]:not([tabindex="-1"])').toArray();
+      if (e.key === 'Tab') {        
+        const focusable = $modal.find('button').toArray();
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
     
         if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
           first.focus();
-        } else if (e.shiftKey && document.activeElement === first) {
           e.preventDefault();
+        } else if (e.shiftKey && document.activeElement === first) {
           last.focus();
-        }
+          e.preventDefault();
+        }        
+      }
+    });
+
+    // When focus leaves the last button, but not inside modal → move to first
+    $panDown.on('focusout', (e) => {
+      if (!$modal[0].contains(e.relatedTarget)) {
+        e.preventDefault();
+        $close.focus();
       }
     });
   }
@@ -278,6 +316,21 @@ class ZoomableFigure {
     });
   }
 
+  setMainHidden(hidden){
+    // Select the main element
+    const mainElement = document.querySelector('main, [role="main"]');
+    if (mainElement) {
+      if(hidden){
+        mainElement.setAttribute('tabindex', '-1')  
+        mainElement.setAttribute("aria-hidden",true);
+      }
+      else{
+        mainElement.removeAttribute('tabindex');
+        mainElement.removeAttribute('aria-hidden');
+      }
+    }
+  }
+
   panLeft($modal) {
     const $img = $modal.find('.zoomable-image');
     const $container = $modal.find('.image-container');
@@ -324,6 +377,9 @@ class ZoomableFigure {
   
   announcePanState(){
     $('#pan-status').text(`Image moved horizontally X=${this.translateX} and vertically Y=${this.translateY}`);
+  }
+  announceZoomState(){
+    $('#pan-status').text(`Zoom: ${Math.round(this.currentZoom*100)}%`)
   }
 }
 

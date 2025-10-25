@@ -43,10 +43,10 @@ class ZoomableFigure {
     let $modal = $('#zoomableFigureModal');
     if ($modal.length === 0) {
       $modal = $(`
-        <div class="figure-modal" id="zoomableFigureModal" role="dialog" aria-modal="true" aria-label="Zoomable image viewer">
+        <div tabindex="0" class="figure-modal" id="zoomableFigureModal" role="dialog" aria-modal="true" aria-label="Zoomable image viewer">
           <button tabindex="0" class="zoom-btn close-modal" aria-label="Close Image Viewer" title="Close Image Viewer"></button>
           <div class="modal-content">            
-            <div class="image-container" style="overflow:hidden;">
+            <div class="image-container">
               <img class="zoomable-image" style="transform: scale(1) translate(0px,0px); cursor: grab;" />
             </div>                     
           </div>          
@@ -82,7 +82,7 @@ class ZoomableFigure {
     $modalImg.attr('src', $img.attr('src')).attr('alt', $img.attr('alt'));
   
     $modal.css('display', 'flex')//.attr('tabindex', 0).focus();
-    $('body').css('overflow', 'hidden');
+    //$('body').css('overflow', 'hidden');
     //$('body').find("main").attr("aria-hidden","true");
     this.resetZoom($modal, true);
     this.setMainHidden(true);
@@ -216,10 +216,11 @@ class ZoomableFigure {
 
     // Close modal on background click
     $modal.on('click', (e) => {
-      if (e.target === $modal[0]) this.closeModal($modal);
+      //if (e.target === $modal[0]) this.closeModal($modal);
     });
 
     $modal.on('keydown', (e) => {
+      console.log(e.target);
       switch(e.key) {
         case 'Escape': this.closeModal($modal); break;
         case '+': this.zoomIn($modal); break;
@@ -272,7 +273,7 @@ class ZoomableFigure {
       if (this.isPanning && this.currentZoom > 1) {
         this.translateX = event.clientX - this.startX;
         this.translateY = event.clientY - this.startY;
-        this.updateImageTransform(groupId);
+        //this.updateImageTransform(groupId);
         event.preventDefault();
       }
     });
@@ -281,7 +282,7 @@ class ZoomableFigure {
       if (this.isPanning) {
         this.isPanning = false;
         container.removeClass('dragging');
-        this.saveCurrentState(groupId);
+        //this.saveCurrentState(groupId);
       }
     });
     
@@ -302,7 +303,7 @@ class ZoomableFigure {
         const touch = event.originalEvent.touches[0];
         this.translateX = touch.clientX - this.startX;
         this.translateY = touch.clientY - this.startY;
-        this.updateImageTransform(groupId);
+        //this.updateImageTransform(groupId);
         event.preventDefault();
       }
     });
@@ -311,7 +312,7 @@ class ZoomableFigure {
       if (this.isPanning) {
         this.isPanning = false;
         container.removeClass('dragging');
-        this.saveCurrentState(groupId);
+        //this.saveCurrentState(groupId);
       }
     });
   }

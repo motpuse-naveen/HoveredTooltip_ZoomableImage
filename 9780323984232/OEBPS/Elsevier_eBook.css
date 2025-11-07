@@ -2,7 +2,7 @@
 /* ==================== standards styles ===================== */
 body
 {
-	font-family: Georgia, serif;
+	font-family: serif;
 	font-size: 16px;
 	line-height: 150%;
 	color: #2E2E2E;
@@ -536,6 +536,7 @@ padding-bottom: 0.25em;
 padding-right: 0.25em;
 color: #ffffff;
 border-bottom: 1px solid #000000;
+font-family: Georgia, serif;
 }
 h1.chapnum1
 {
@@ -551,6 +552,7 @@ padding-bottom: 0.25em;
 padding-right: 0.25em;
 color: #ffffff;
 border-bottom: 1px solid #000000;
+font-family: Georgia, serif;
 }
 
 p.chaptitle1
@@ -561,6 +563,7 @@ font-size: 240%;
 text-align: left;
 text-indent: 0em;
 line-height: 1em;
+font-family: Georgia, serif;
 }
 h2.chapsubt
 {
@@ -571,6 +574,7 @@ text-indent: 0em;
 line-height: 1.1em;
 font-weight: lighter;
 font-variant: normal;
+font-family: Georgia, serif;
 }
 .chapau
 {
@@ -581,6 +585,7 @@ text-indent: 0em;
 font-weight: lighter;
 color: #545454;
 margin-bottom: 3em;
+font-family: Georgia, serif;
 }
 .presented
 {
@@ -591,6 +596,7 @@ text-indent: 0em;
 font-weight: lighter;
 color: #545454;
 margin-bottom: 2em;
+font-family: Georgia, serif;
 }
 .chapau1
 {
@@ -599,6 +605,7 @@ text-align: left;
 text-indent: 0em;
 margin-top: 0.5em;
 font-weight: bold;
+font-family: Georgia, serif;
 }
 p.chapoutlhd
 {
@@ -618,6 +625,7 @@ border-bottom-width: 8px;
 border-bottom-style: solid;
 border-bottom-color: #6D3A17;
 text-indent: -1px;
+font-family: Georgia, serif;
 }
 li.chapoutl1
 {
@@ -690,6 +698,7 @@ text-indent: -1px;
 border-bottom-width: 8px;
 border-bottom-style: solid;
 border-bottom-color: #695621;
+font-family: Georgia, serif;
 }
 .objtext
 {
@@ -768,6 +777,7 @@ font-size: 130%;
 margin-top: 1em;
 margin-bottom: 0.25em;
 color: #535C05;
+font-family: Georgia, serif;
 page-break-inside: avoid;
 }
 h3.h2hd
@@ -776,6 +786,7 @@ font-size: 110%;
 margin-top: 1em;
 margin-bottom: 0.25em;
 color: #2C5E6D;
+font-family: Georgia, serif;
 }
 h4.h3hd
 {
@@ -785,6 +796,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #800000;
+font-family: Georgia, serif;
 }
 h5.h4hd
 {
@@ -794,6 +806,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #88471B;
+font-family: Georgia, serif;
 }
 h6.h5hd
 {
@@ -803,6 +816,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #747574;
+font-family: Georgia, serif;
 }
 .h6hd
 {
@@ -812,6 +826,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #00615C;
+font-family: Georgia, serif;
 }
 .h7hd
 {
@@ -821,6 +836,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #0067C8;
+font-family: Georgia, serif;
 }
 .h8hd
 {
@@ -829,6 +845,7 @@ font-weight: bold;
 margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
+font-family: Georgia, serif;
 }
 .h3after2
 {
@@ -839,10 +856,11 @@ color: #800000;
 text-indent: 0em;
 margin-top: 0px;
 margin-bottom: 0.25em;
+font-family: Georgia, serif;
 }
 .textfl
 {
-font-family: Georgia, serif;
+font-family: serif;
 font-size: 16px;
 line-height: 150%;
 color: #2E2E2E;
@@ -853,7 +871,7 @@ text-indent: 0em;
 }
 .text
 {
-font-family: Georgia, serif;
+font-family: serif;
 font-size: 16px;
 line-height: 150%;
 color: #2E2E2E;

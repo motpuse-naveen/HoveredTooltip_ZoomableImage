@@ -150,7 +150,7 @@ figure.zoomable-figure {
   margin-block-end: 1em;
   margin-inline-start: 40px;
   margin-inline-end: 40px;
-  unicode-bidi: isolate;
+  /*unicode-bidi: isolate;*/
 }
 .zoomable-figure .figure-zoom-btn {
   position: absolute;

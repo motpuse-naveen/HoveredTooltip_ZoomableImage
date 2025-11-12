@@ -207,6 +207,7 @@ a:active {
     padding-right: 0px;
     padding-left: 3px;
     margin-left: 1px;
+    top: -2px;
 }
 .star.dropdown.def-img.star-tooltip:before {
     content: '*';
@@ -221,6 +222,7 @@ a:active {
     padding-right: 0px;
     padding-left: 3px;
     margin-left: 1px;
+    top: -2px;
     color: blue;
 }
 .no-leftPad{

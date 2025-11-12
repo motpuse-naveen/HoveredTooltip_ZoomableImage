@@ -28,16 +28,27 @@ $(document).ready(function() {
             .css("width", hoveredObj.width);
         var $tooltipText = $('<div class="tooltip-text"></div>').html(hoveredObj.content);
         var $tooltipGoBtn = $(`<a class="goto-btn" tabindex="-1">${text}</a>`).attr("href", href);
-        $tooltip.append($tooltipText, $('<div class="btn-cont"></div>').append($tooltipGoBtn));
+        if(hoveredObj.auto_add_link == true){            
+            $tooltip.append($tooltipText, $('<div class="btn-cont"></div>').append($tooltipGoBtn));
+        }else{
+            $tooltip.append($tooltipText);
+        }
 
         // Popover (touch)
         var $popover = $('<div class="popover" role="dialog" aria-modal="false" aria-hidden="true" hidden="hidden"></div>')
             .attr("id", "popover-" + id)
             .css("width", hoveredObj.width);
         var $popText = $('<div class="popover-text"></div>').html(hoveredObj.content);
-        var $popoverGoBtn = $(`<a class="goto-btn">${text}</a>`).attr("href", href).attr("tabindex", "-1");
         var $closeBtn = $('<button class="close-btn" tabindex="-1">Close</button>');
-        $popover.append($popText, $('<div class="btn-cont"></div>').append($popoverGoBtn, $closeBtn));
+        var $popoverGoBtn = $(`<a class="goto-btn">${text}</a>`).attr("href", href).attr("tabindex", "-1");
+        if(hoveredObj.auto_add_link == true){    
+            $popover.append($popText, $('<div class="btn-cont"></div>').append($popoverGoBtn, $closeBtn));
+        }
+        else{
+            $popover.append($popText, $('<div class="btn-cont"></div>').append($closeBtn));
+        }
+        
+        
 
         // Append tooltip and popover
         $link.parent().append($tooltip, $popover);
@@ -71,12 +82,13 @@ $(document).ready(function() {
                 $tooltip.removeClass('show').attr("aria-hidden", "true").attr("hidden", "hidden");
                 $link.attr("aria-expanded", "false");
             });
-
-            $tooltipGoBtn.on('click', function() {
-                // Navigation if needed
-                $tooltip.removeClass('show').attr("aria-hidden", "true").attr("hidden", "hidden");
-                $link.attr("aria-expanded", "false");
-            });            
+            if(hoveredObj.auto_add_link == true && $tooltipGoBtn!=undefined){
+                $tooltipGoBtn.on('click', function() {
+                    // Navigation if needed
+                    $tooltip.removeClass('show').attr("aria-hidden", "true").attr("hidden", "hidden");
+                    $link.attr("aria-expanded", "false");
+                });  
+            }          
         }
 
         // --- TOUCH: Popover ---
@@ -92,26 +104,33 @@ $(document).ready(function() {
 
                 if (!isVisible) {
                     $popover.show().attr("aria-hidden", "false").removeAttr("hidden");
-                    $popoverGoBtn.removeAttr("tabindex");
-                    $closeBtn.removeAttr("tabindex");
                     $link.attr("aria-expanded", "true");
-                    $popoverGoBtn.focus();
-
+                    if($tooltipGoBtn!=undefined){
+                        $popoverGoBtn.removeAttr("tabindex");
+                        $popoverGoBtn.focus();
+                    }
+                    else{
+                        $closeBtn.removeAttr("tabindex");
+                        $closeBtn.focus();
+                    }
                     var plainText = $('<div>').html(hoveredObj.content).text();
                     $ariaLive.text(plainText);
                 }
             });
-
-            $popoverGoBtn.on('click', function() {
-                $popover.hide().attr("aria-hidden", "true").attr("hidden", "hidden");
-                $popoverGoBtn.attr("tabindex", "-1");
-                $closeBtn.attr("tabindex", "-1");
-                $link.attr("aria-expanded", "false");
-            });
+            if(hoveredObj.auto_add_link == true && $tooltipGoBtn!=undefined){
+                $popoverGoBtn.on('click', function() {
+                    $popover.hide().attr("aria-hidden", "true").attr("hidden", "hidden");
+                    $popoverGoBtn.attr("tabindex", "-1");
+                    $closeBtn.attr("tabindex", "-1");
+                    $link.attr("aria-expanded", "false");
+                });
+            }
 
             $closeBtn.on('click', function() {
                 $popover.hide().attr("aria-hidden", "true").attr("hidden", "hidden");
-                $popoverGoBtn.attr("tabindex", "-1");
+                if($tooltipGoBtn!=undefined){
+                    $popoverGoBtn.attr("tabindex", "-1");
+                }
                 $closeBtn.attr("tabindex", "-1");
                 $link.attr("aria-expanded", "false").focus();
             });

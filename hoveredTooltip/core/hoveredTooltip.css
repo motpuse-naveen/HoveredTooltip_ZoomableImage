@@ -173,8 +173,6 @@
     text-align: right;
 }
 
-
-
 /* Right ribbon: tooltip/popover appears left */
 .hovered-ribbon.ribbon-right .tooltip,
 .hovered-ribbon.ribbon-right .popover {
@@ -182,7 +180,7 @@
     top: 50%;
     transform: translateY(-50%);
     margin-right: 0px;
-    min-width: 150px;
+    min-width: 180px;
 }
 
 /* Left ribbon: tooltip/popover appears right */
@@ -192,7 +190,7 @@
     top: 50%;
     transform: translateY(-50%);
     margin-left: 0px;
-    min-width: 150px;
+    min-width: 180px;
 }
 
 /* Container */
@@ -204,8 +202,6 @@
     gap: 8px; /* spacing between buttons */
 }
 
-
-
 .hovered-ribbon .btn-cont .goto-btn{
     background: var(--hovered-bg);
     /*margin-right: 15px;*/
@@ -215,6 +211,7 @@
     text-decoration: underline;
     text-underline-offset: 4px; /* increase the gap */
 }
+
 .hovered-ribbon .btn-cont .close-btn {
     background: var(--hovered-bg);
     color: var(--hovered-color);
@@ -223,6 +220,7 @@
     border-radius: 2px;
     font-weight: bold;
 }
+
 .hovered-ribbon .close-btn {
     background: transparent;
     color: var(--hovered-color);

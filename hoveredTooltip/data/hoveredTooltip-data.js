@@ -1,7 +1,40 @@
 var HoveredJSONData = {
-    //cf0140, cf0120, cf0105 --- id given to the tooltips.
+    //cf0140, cf0120, cf0105, aenun0035 --- id given to the tooltips.
     cf0140: {content:`<strong>SECTION 2.1.2:</strong><br/> Context-Free Grammars`, width: "220px"},
-    cf0120: {content:`<strong>SECTION 2.4:</strong><br/> Theoretical Foundations`, width: "150px"},
-    cf0105: {content:`<strong>SECTION 2.1:</strong><br/> Specifying Syntax: Regular Expressions and Context-Free Grammars`, width:"200px"}
+    cf0120: {content:`<strong>SECTION 2.4:</strong><br/> Theoretical Foundations`, width: "150px", auto_add_link:true},
+    cf0105: {content:`<strong>SECTION 2.1:</strong><br/> Specifying Syntax: Regular Expressions and Context-Free Grammars`, width:"200px"},
+    aenun0035: {content:`<strong>Example 2.4:</strong><br/> Syntactic nesting in expressions`, width:"150px"},
+    benun0035: {content:`<strong>Example 2.4:</strong><br/> Syntactic nesting in expressions`, width:"150px"},
+    cenun0035: {content:`<strong>Example 2.4:</strong><br/> Syntactic nesting in expressions`, width:"150px"},
+    cf0010: {content:`<strong>Example 2.8:</strong><br/> Expression grammar with precedence and associativity`, width:"150px"},
+    cf0015: {content:`<strong>Example 2.8:</strong><br/> Expression grammar with precedence and associativity`, width:"150px"},
+    denun0035: {content:`<strong>Example 2.4:</strong><br/> Syntactic nesting in expressions`, width:"150px"},
+    cf0205: {content:`<strong>Example 2.8:</strong><br/> Expression grammar with precedence and associativity`, width:"150px"},
+    cf0215: {content:`<strong>Example 2.3:</strong><br/> Syntax of numeric constants`, width:"150px"},
+    cf0245: {content:`<strong>Example 2.9:</strong><br/> Tokens for a calculator language`, width:"150px"},
+    cf0260: {content:`<strong>Example 2.3:</strong><br/> Syntax of numeric constants`, width:"150px"},
+    cf0310: {content:`<strong>Example 2.3:</strong><br/> Syntax of numeric constants`, width:"150px"},
+    cf0445: {content:`<strong>Example 2.8:</strong><br/> Expression grammar with precedence and associativity`, width:"150px"},
+    cf0450: {content:`<strong>Example 2.21:</strong><br/> Bounding space with a bottom-up grammar`, width:"150px"},
+    cf0050: {content:`<strong>Example 2.24:</strong><br/> Recursive descent parse of a &#x201C;sum and average&#x201D; program`, width:"150px"},
+    cf0510: {content:`<strong>Example 2.21:</strong><br/> Bounding space with a bottom-up grammar`, width:"150px"},
+    cf0525: {content:`<strong>Example 2.20:</strong><br/> Top-down and bottom-up parsing`, width:"150px"},
+    cf0555: {content:`<strong>Example 2.24:</strong><br/> Recursive descent parse of a &#x201C;sum and average&#x201D; program`, width:"150px"},
+    cf0065: {content:`<strong>Example 2.24:</strong><br/> Recursive descent parse of a &#x201C;sum and average&#x201D; program`, width:"150px"},
+    cf0620: {content:`<strong>Example 2.24:</strong><br/> Recursive descent parse of a &#x201C;sum and average&#x201D; program`, width:"150px"},
+    cf0630: {content:`<strong>Example 2.38:</strong><br/> Bottom-up parse of the &#x201C;sum and average&#x201D; program`, width:"150px"},
+    cf0685: {content:`<strong>2.4:</strong><br/> Recognizing multiple kinds of token`, width:"150px"},
+    cf0695: {content:`<strong>Example 2.3:</strong><br/> Syntax of numeric constants`, width:"150px"},
+    cf0710: {content:`<strong>Example 2.14:</strong><br/> DFA for <em>d</em><b>&#xFF0A;(</b>&#x2009;<span class="inlinecode">.</span><em>d</em> | <em>d</em><span class="inlinecode">.</span>&#x2009;<b>)</b>&#x2009;<em>d</em><b>&#xFF0A;</b>`, width:"150px"},
+    cf0715: {content:`<strong>Example 2.15:</strong><br/> Minimal DFA for <em>d</em><b>&#xFF0A;(</b>&#x2009;<span class="inlinecode">.</span><em>d</em> | <em>d</em><span class="inlinecode">.</span>&#x2009;<b>)</b>&#x2009;<em>d</em><b>&#xFF0A;</b>`, width:"150px"},
+    cf0720: {content:`<strong>Example 2.3:</strong><br/> Syntax of numeric constants`, width:"150px"},
+    cf0725: {content:`<strong>2.4:</strong><br/> Recognizing multiple kinds of token`, width:"150px"},
+    cf0730: {content:`<strong>Example 2.13:</strong><br/> NFA for <em>d</em><b>&#xFF0A;(</b>&#x2009;<span class="inlinecode">.</span><em>d</em> | <em>d</em><span class="inlinecode">.</span>&#x2009;<b>)</b>&#x2009;<em>d</em><b>&#xFF0A;</b>`, width:"150px"},
+    cf0735: {content:`<strong>Example 2.15:</strong><br/> Minimal DFA for <em>d</em><b>&#xFF0A;(</b>&#x2009;<span class="inlinecode">.</span><em>d</em> | <em>d</em><span class="inlinecode">.</span>&#x2009;<b>)</b>&#x2009;<em>d</em><b>&#xFF0A;</b>`, width:"150px"},
+    cf0740: {content:`<strong>Example 2.9:</strong><br/> Tokens for a calculator language`, width:"150px"},
+    cf0755: {content:`<strong>Example 2.8:</strong><br/> Expression grammar with precedence and associativity`, width:"150px"},
+    cf0770: {content:`<strong>Example 2.20:</strong><br/> Top-down and bottom-up parsing`, width:"150px"},
+    cf0780: {content:`<strong>Example 2.36:</strong><br/> Derivation of an <span class="inlinecode">id</span> list`, width:"150px"}
+
   };
   

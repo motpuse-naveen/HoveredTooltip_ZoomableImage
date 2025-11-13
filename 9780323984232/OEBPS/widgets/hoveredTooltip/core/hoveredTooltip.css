@@ -28,11 +28,14 @@
     line-height: 1.4;
   }
 
+
 .hovered-ribbon.ribbon-left a.hovered-link{
     border-left: 0;
+    border-radius: 4px 3px 3px 5px;
 }
 .hovered-ribbon.ribbon-right a.hovered-link{
     border-right: 0;
+    border-radius: 3px 5px 6px 3px;
 }
 
 /* Right ribbon */
@@ -184,6 +187,9 @@
     transform: translateY(-50%);
     margin-right: 0px;
     min-width: 180px;
+    box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
+-webkit-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
+-moz-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
 }
 
 /* Left ribbon: tooltip/popover appears right */
@@ -194,6 +200,10 @@
     transform: translateY(-50%);
     margin-left: 0px;
     min-width: 180px;
+
+    box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
+-webkit-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
+-moz-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
 }
 
 /* Container */

@@ -214,7 +214,7 @@ function setRibbonDirection($link) {
 
 function setRibbonDirection($link) {
     // Find nearest container that defines visible area
-    var $container = $link.closest('p, div, section, .page-container, [role="doc-pagebreak"], body').first();
+    var $container = $link.closest('p,li ,ul, ol, div, section, .page-container, [role="doc-pagebreak"], body').first();
     if ($container.length === 0) $container = $(window);
 
     var containerRect = $container[0].getBoundingClientRect();

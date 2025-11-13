@@ -31,7 +31,7 @@
 
 .hovered-ribbon.ribbon-left a.hovered-link{
     border-left: 0;
-    border-radius: 4px 3px 3px 5px;
+    border-radius: 5px 3px 3px 6px;
 }
 .hovered-ribbon.ribbon-right a.hovered-link{
     border-right: 0;

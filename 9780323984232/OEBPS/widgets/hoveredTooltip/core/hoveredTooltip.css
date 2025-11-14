@@ -10,6 +10,8 @@
     text-indent: 0;
     background-color: var(--hovered-bg);
     margin: 0 2px; /* small spacing around */
+    font-size: 16px;
+    font-family: inherit;
 }
 
 /* Ribbon links */
@@ -19,20 +21,18 @@
     font-weight: bold;
     padding: 0px 6px;
     border: 2px solid var(--hovered-color);
-    border-radius: 3px;
+    border-radius: 3px 5px 6px 3px;
+    /*border-radius: 3px;*/
     text-decoration: none;
     /*color: var(--hovered-color);*/
-    line-height: 1.4;
+    line-height: 1.4;    
   }
 
-.hovered-ribbon.ribbon-left a.hovered-link{
-    border-left: 0;
-}
-.hovered-ribbon.ribbon-right a.hovered-link{
-    border-right: 0;
-}
+  
 
-/* Right ribbon */
+
+/* Right ribbon/ Left Ribbon */
+/*
 .hovered-ribbon.ribbon-right{
     border-radius: 4px 0 0 4px;
     margin-right: 14px;
@@ -46,22 +46,25 @@
 }
 
 .hovered-ribbon.ribbon-right::before {
-    right: -15px; /* move arrow outside tooltip */
+    right: -15px; 
     border-style: solid;
-    border-width: 12px 0 12px 17px; /* top right bottom left */
-    border-color: transparent transparent transparent black; /* black outer border */
+    border-width: 12px 0 12px 17px; 
+    border-color: transparent transparent transparent black; 
 }
 
 .hovered-ribbon.ribbon-right::after {
-    right: -12px; /* slightly inside for border effect */
+    right: -12px; 
     border-style: solid;
     border-width: 11px 0 11px 15px;
-    border-color: transparent transparent transparent var(--hovered-bg); /* yellow fill */
+    border-color: transparent transparent transparent var(--hovered-bg); 
     z-index: 100;
 }
 
+.hovered-ribbon.ribbon-right a.hovered-link{
+    border-right: 0;
+    border-radius: 3px 5px 6px 3px;
+}
 
-/* Left ribbon */
 .hovered-ribbon.ribbon-left{
     border-radius: 0 4px 4px 0;
     margin-left: 14px;
@@ -78,15 +81,93 @@
     left: -15px;
     border-style: solid;
     border-width: 12px 17px 12px 0;
-    border-color: transparent black transparent transparent; /* outer black border */
+    border-color: transparent black transparent transparent; 
 }
 
 .hovered-ribbon.ribbon-left::after {
     left: -12px;
     border-style: solid;
     border-width: 11px 15px 11px 0;
-    border-color: transparent var(--hovered-bg) transparent transparent; /* inner yellow fill */
+    border-color: transparent var(--hovered-bg) transparent transparent;
     z-index: 100;
+}
+
+.hovered-ribbon.ribbon-left a.hovered-link {
+    border-radius: 5px 3px 3px 5px;
+}
+*/
+
+
+.hovered-ribbon a.hovered-link {
+    z-index: 10;
+    position: relative;
+  }
+
+.hovered-ribbon {
+    height:26px;
+}
+.hovered-ribbon.ribbon-right{
+    margin-right: 14px;
+}
+.hovered-ribbon.ribbon-right::before {
+    content: "";
+    position: absolute;
+    top: 0.26rem;
+    right: -9px;
+    border: 2px solid #000;
+    height: 16px;
+    width: 16px;
+    transform: rotate(45deg);
+    z-index: 0;
+    border-bottom: 0;
+    border-left: 0;
+}
+.hovered-ribbon.ribbon-right::after {
+    content: "";
+    position: absolute;
+    top: 0.8rem;
+    transform: translateY(-50%);
+    right: -10px;
+    border-style: solid;
+    border-width: 11px 0px 10px 11px;
+    border-color: transparent transparent transparent var(--hovered-bg);
+    z-index: 100;
+}
+.hovered-ribbon.ribbon-right a.hovered-link {
+    border-right: 0;
+    border-radius: 3px 1px 1px 3px;
+}
+
+.hovered-ribbon.ribbon-left{
+    margin-left: 14px;
+}
+.hovered-ribbon.ribbon-left::before {
+    content: "";
+    position: absolute;
+    top: 0.27rem;
+    left: -9px;
+    border: 2px solid #000;
+    height: 16px;
+    width: 16px;
+    transform: rotate(45deg);
+    z-index: 0;
+    border-top: 0;
+    border-right: 0;
+}
+.hovered-ribbon.ribbon-left::after {
+    content: "";
+    position: absolute;
+    top: 0.82rem;
+    transform: translateY(-50%);
+    left: -10px;
+    border-style: solid;
+    border-width: 11px 11px 11px 0;
+    border-color: transparent var(--hovered-bg) transparent transparent;
+    z-index: 100;
+}
+.hovered-ribbon.ribbon-left a.hovered-link {
+    border-left: 0;
+    border-radius: 1px 3px 3px 1px;
 }
 
 /* Tooltip styling */
@@ -176,21 +257,28 @@
 /* Right ribbon: tooltip/popover appears left */
 .hovered-ribbon.ribbon-right .tooltip,
 .hovered-ribbon.ribbon-right .popover {
-    right: 0;
+    right: -2px;
     top: 50%;
     transform: translateY(-50%);
     margin-right: 0px;
     min-width: 180px;
+    box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
+-webkit-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
+-moz-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
 }
 
 /* Left ribbon: tooltip/popover appears right */
 .hovered-ribbon.ribbon-left .tooltip,
 .hovered-ribbon.ribbon-left .popover {
-    left: 0;
+    left: -2px;
     top: 50%;
     transform: translateY(-50%);
     margin-left: 0px;
     min-width: 180px;
+
+    box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
+-webkit-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
+-moz-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
 }
 
 /* Container */

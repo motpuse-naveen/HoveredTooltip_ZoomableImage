@@ -13,11 +13,8 @@ $(document).ready(function() {
         $('body').append($ariaLive);
     }
 
-    //var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    isTouch = isTouchEnvironment();
-    //debugLog("isTouch: " + isTouch);
-    //debugLog("isTouch1: " + ('ontouchstart' in window));
-    //debugLog("isTouch2: " + (navigator.maxTouchPoints > 0));
+    var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
     $('.hovered-ribbon a').each(function() {
         var $link = $(this);
         var id = $link.attr('id');
@@ -25,8 +22,6 @@ $(document).ready(function() {
         var text = $link.text();
         var hoveredObj = HoveredJSONData[id] || { content: "No content", width: "130px" };
 
-        $link.attr('tabindex',"0");
-        $link.attr('role',"button");
         // Tooltip (desktop)
         var $tooltip = $('<div class="tooltip" role="tooltip"></div>')
             .attr("id", "tooltip-" + id)
@@ -170,7 +165,6 @@ $(document).ready(function() {
 });
 
 // Set tooltip/popover direction
-/*
 function setRibbonDirection($link) {
     var offset = $link.offset();
     var viewportWidth = $(window).width();
@@ -188,107 +182,3 @@ function setRibbonDirection($link) {
         $popover.removeClass('popover-left').addClass('popover-right');
     }
 }
-
-
-function setRibbonDirection($link) {
-    var rect = $link[0].getBoundingClientRect();
-    var viewportWidth = window.innerWidth;
-    var $tooltip = $link.siblings('.tooltip');
-    var $popover = $link.siblings('.popover');
-    var tooltipWidth = $tooltip.outerWidth() || 130; // fallback
-    var directionClass = (rect.left > (viewportWidth - tooltipWidth - 20))
-        ? 'ribbon-left'
-        : 'ribbon-right';
-
-    $link.parent().removeClass('ribbon-left ribbon-right').addClass(directionClass);
-
-    if (directionClass === 'ribbon-left') {
-        $tooltip.removeClass('tooltip-right').addClass('tooltip-left');
-        $popover.removeClass('popover-right').addClass('popover-left');
-    } else {
-        $tooltip.removeClass('tooltip-left').addClass('tooltip-right');
-        $popover.removeClass('popover-left').addClass('popover-right');
-    }
-}
-*/
-
-function setRibbonDirection($link) {
-    // Find nearest container that defines visible area
-    var $container = $link.closest('p,li ,ul, ol, div, section, .page-container, [role="doc-pagebreak"], body').first();
-    if ($container.length === 0) $container = $(window);
-
-    var containerRect = $container[0].getBoundingClientRect();
-    var linkRect = $link[0].getBoundingClientRect();
-
-    var $tooltip = $link.siblings('.tooltip');
-    var $popover = $link.siblings('.popover');
-    var tooltipWidth = $tooltip.outerWidth() || 130;
-    var cutoffPadding = 0;
-
-    // Compute available space inside container
-    var availableRight = containerRect.right - linkRect.right;
-    var availableLeft = linkRect.left - containerRect.left;
-
-    // Default: place tooltip on right side (ribbon pointing left)
-    var directionClass = 'ribbon-right';
-    var tooltipDirection = 'tooltip-left';
-    var popoverDirection = 'popover-left';
-
-    // Flip to left side only if not enough space on the right
-    
-    if(availableLeft < (tooltipWidth + cutoffPadding)){
-        directionClass = 'ribbon-left';
-        tooltipDirection = 'tooltip-right';
-        popoverDirection = 'popover-right';
-    }
-
-    // Apply classes
-    $link.parent().removeClass('ribbon-left ribbon-right').addClass(directionClass);
-    $tooltip.removeClass('tooltip-left tooltip-right').addClass(tooltipDirection);
-    $popover.removeClass('popover-left popover-right').addClass(popoverDirection);
-}
-
-function debugLog(message) {
-    //<div id="logMessages" style="font-size: 12px; color: #222; background: #f4f4f4; padding: 8px; margin: 10px 0; border: 1px solid #ccc; max-height: 200px; overflow-y: auto;"></div>
-    var logDiv = document.getElementById('logMessages');
-    if (!logDiv) return; // Exit if div not found
-  
-    // Format message
-    var time = new Date().toLocaleTimeString();
-    var formatted = `[${time}] ${message}`;
-  
-    // Create a new log entry
-    var p = document.createElement('div');
-    p.textContent = formatted;
-  
-    // Append it
-    logDiv.appendChild(p);
-  
-    // Keep it scrolled to bottom
-    logDiv.scrollTop = logDiv.scrollHeight;
-  }
-
-  function isTouchEnvironment() {
-    let touch = navigator.maxTouchPoints > 0;
-    //debugLog("touch1: " + touch)
-    //debugLog("navigator.userAgent: " + navigator.userAgent)
-    if (navigator.userAgent.includes('Macintosh') && !navigator.userAgent.includes('Mobile')) {
-        touch = false;
-    }
-    
-    const logDiv = document.getElementById('logmessages');
-    if (logDiv) {
-        logDiv.innerText += `maxTouchPoints: ${navigator.maxTouchPoints}\n`;
-        logDiv.innerText += `UserAgent: ${navigator.userAgent}\n`;
-        logDiv.innerText += `Final isTouch: ${touch}\n`;
-    }
-
-    return touch;
-}
-
-
-
-  
-
-
-

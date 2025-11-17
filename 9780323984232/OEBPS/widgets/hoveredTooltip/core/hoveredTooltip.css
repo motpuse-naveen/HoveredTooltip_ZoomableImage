@@ -19,13 +19,13 @@
     display: inline-block;
     font-size: inherit;  /* take parent font size */
     font-weight: bold;
-    padding: 0px 6px;
+    padding: 0px 8px;
     border: 2px solid var(--hovered-color);
     border-radius: 3px 5px 6px 3px;
     /*border-radius: 3px;*/
     text-decoration: none;
     /*color: var(--hovered-color);*/
-    line-height: 1.4;    
+    /*line-height: 1.5;*/  
   }
 
   
@@ -101,10 +101,12 @@
 .hovered-ribbon a.hovered-link {
     z-index: 10;
     position: relative;
-  }
+    height: 24px;
+    font-size: 16px;
+}
 
 .hovered-ribbon {
-    height:26px;
+    /*height:26px;*/
 }
 .hovered-ribbon.ribbon-right{
     margin-right: 14px;
@@ -115,8 +117,8 @@
     top: 0.26rem;
     right: -9px;
     border: 2px solid #000;
-    height: 16px;
-    width: 16px;
+    height: 17px;
+    width: 17px;
     transform: rotate(45deg);
     z-index: 0;
     border-bottom: 0;
@@ -125,7 +127,7 @@
 .hovered-ribbon.ribbon-right::after {
     content: "";
     position: absolute;
-    top: 0.8rem;
+    top: 0.84rem;
     transform: translateY(-50%);
     right: -10px;
     border-style: solid;
@@ -144,11 +146,11 @@
 .hovered-ribbon.ribbon-left::before {
     content: "";
     position: absolute;
-    top: 0.27rem;
+    top: 0.28rem;
     left: -9px;
     border: 2px solid #000;
-    height: 16px;
-    width: 16px;
+    height: 17px;
+    width: 17px;
     transform: rotate(45deg);
     z-index: 0;
     border-top: 0;
@@ -157,7 +159,7 @@
 .hovered-ribbon.ribbon-left::after {
     content: "";
     position: absolute;
-    top: 0.82rem;
+    top: 0.84rem;
     transform: translateY(-50%);
     left: -10px;
     border-style: solid;

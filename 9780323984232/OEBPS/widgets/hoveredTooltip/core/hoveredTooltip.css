@@ -99,14 +99,14 @@
 
 
 .hovered-ribbon a.hovered-link {
-    z-index: 10;
     position: relative;
-    height: 24px;
+    height: 22px;
     font-size: 16px;
+    padding-bottom: 2px;
 }
 
 .hovered-ribbon {
-    /*height:26px;*/
+    height:28px;
 }
 .hovered-ribbon.ribbon-right{
     margin-right: 14px;

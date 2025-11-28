@@ -194,6 +194,27 @@
     <item id="zoomableFigures08" href="widgets/zoomableFigures/core/images/left-direction.svg" media-type="image/svg+xml"/>
     <item id="zoomableFigures09" href="widgets/zoomableFigures/core/images/bottom-direction.svg" media-type="image/svg+xml"/>
 
+		<item id="font1" href="fonts/MinionPro.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font2" href="fonts/MinionPro-Bold.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font3" href="fonts/MinionPro-BoldIt.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font4" href="fonts/MinionPro-It.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font5" href="fonts/GillSans.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font6" href="fonts/GillSans-Bold.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font7" href="fonts/GillSans-Italic.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font8" href="fonts/GillSans-BoldItalic.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font9" href="fonts/GillSans-Light.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font10" href="fonts/GillSans-LightItalic.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font11" href="fonts/LMMono10-Regular.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font12" href="fonts/LMMono8-Regular.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font13" href="fonts/LMMono9-Regular.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font14" href="fonts/LMMonoLt10-Regular.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font15" href="fonts/LMMonoLt10-Bold.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font16" href="fonts/LMMonoLt10-oblique.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font17" href="fonts/LMMonoLt10-BoldOblique.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font18" href="fonts/ZapfDingbatsStd.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font19" href="fonts/GillSansStd-Condensed.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font20" href="fonts/GillSansStd-BoldCondensed.otf" media-type="application/vnd.ms-opentype"/>
+
     <item id="cover" href="Cover.xhtml" media-type="application/xhtml+xml"/>
     <item id="cover_image" href="images/9780323984232/9780323984232_FC.jpg" media-type="image/jpeg" properties="cover-image"/>
     <item id="B9780323999663000027" href="Title_page.xhtml" media-type="application/xhtml+xml"/>
@@ -245,6 +266,7 @@
     <item id="image113" href="images/B9780323999663000118/fx028.png" media-type="image/png"/>
     <item id="image114" href="images/B9780323999663000118/fx045.png" media-type="image/png"/>
     <item id="image115" href="images/B9780323999663000118/fx053.jpg" media-type="image/jpeg"/>
+    <item id="image115a" href="images/B9780323999663000118/greysq.jpg" media-type="image/jpeg"/>
     <item id="image1035" href="images/B9780323999663000118/si1.png" media-type="image/png"/>
     <item id="image1036" href="images/B9780323999663000118/si3.png" media-type="image/png"/>
     <item id="image1037" href="images/B9780323999663000118/si4.png" media-type="image/png"/>

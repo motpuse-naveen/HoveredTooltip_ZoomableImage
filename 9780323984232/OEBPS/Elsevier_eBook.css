@@ -1,8 +1,159 @@
 /* ==================== EPUB CSS version 4.1 ===================== */
 /* ==================== standards styles ===================== */
+
+
+@font-face{
+font-family: "MinionPro";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/MinionPro.otf);
+}
+
+@font-face{
+font-family: "MinionPro";
+font-style: normal;
+font-weight: bold;
+src:url(fonts/MinionPro-Bold.otf);
+}
+
+@font-face{
+font-family: "MinionPro";
+font-style: italic;
+font-weight: bold;
+src:url(fonts/MinionPro-BoldIt.otf);
+}
+
+@font-face{
+font-family: "MinionPro";
+font-style: italic;
+font-weight: normal;
+src:url(fonts/MinionPro-It.otf);
+}
+
+
+@font-face{
+font-family: "GillSans";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/GillSans.otf);
+}
+
+@font-face{
+font-family: "GillSans";
+font-style: normal;
+font-weight: bold;
+src:url(fonts/GillSans-Bold.otf);
+}
+
+@font-face{
+font-family: "GillSans";
+font-style: italic;
+font-weight: normal;
+src:url(fonts/GillSans-Italic.otf);
+}
+
+
+@font-face{
+font-family: "GillSans";
+font-style: italic;
+font-weight: bold;
+src:url(fonts/GillSans-BoldItalic.otf);
+}
+
+@font-face{
+font-family: "GillSans-Light";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/GillSans-Light.otf);
+}
+
+
+@font-face{
+font-family: "GillSans-Light";
+font-style: italic;
+font-weight: normal;
+src:url(fonts/GillSans-LightItalic.otf);
+}
+
+@font-face{
+font-family: "LMMono10";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/LMMono10-Regular.otf);
+}
+
+@font-face{
+font-family: "LMMono8";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/LMMono8-Regular.otf);
+}
+
+@font-face{
+font-family: "LMMono9";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/LMMono9-Regular.otf);
+}
+
+@font-face{
+font-family: "LMMonoLt10";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/LMMonoLt10-Regular.otf);
+}
+
+@font-face{
+font-family: "LMMonoLt10";
+font-style: normal;
+font-weight: bold;
+src:url(fonts/LMMonoLt10-Bold.otf);
+}
+
+@font-face{
+font-family: "LMMonoLt10";
+font-style: italic;
+font-weight: normal;
+src:url(fonts/LMMonoLt10-oblique.otf);
+}
+
+
+@font-face{
+font-family: "LMMonoLt10";
+font-style: italic;
+font-weight: bold;
+src:url(fonts/LMMonoLt10-BoldOblique.otf);
+}
+
+
+@font-face{
+font-family: "ZapfDingbatsStd";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/ZapfDingbatsStd.otf);
+}
+
+
+@font-face{
+font-family: "GillSansStd";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/GillSansStd-Condensed.otf);
+}
+
+
+@font-face{
+font-family: "GillSansStd-BoldCondensed";
+font-style: normal;
+font-weight: bold;
+src:url(fonts/GillSansStd-BoldCondensed.otf);
+}
+
+
+
 body
 {
-	font-family: serif;
+	font-family: MinionPro;
 	font-size: 16px;
 	line-height: 150%;
 	color: #2E2E2E;
@@ -536,7 +687,7 @@ padding-bottom: 0.25em;
 padding-right: 0.25em;
 color: #ffffff;
 border-bottom: 1px solid #000000;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 h1.chapnum1
 {
@@ -552,7 +703,7 @@ padding-bottom: 0.25em;
 padding-right: 0.25em;
 color: #ffffff;
 border-bottom: 1px solid #000000;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 
 p.chaptitle1
@@ -563,7 +714,7 @@ font-size: 240%;
 text-align: left;
 text-indent: 0em;
 line-height: 1em;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 h2.chapsubt
 {
@@ -574,7 +725,7 @@ text-indent: 0em;
 line-height: 1.1em;
 font-weight: lighter;
 font-variant: normal;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 .chapau
 {
@@ -585,7 +736,7 @@ text-indent: 0em;
 font-weight: lighter;
 color: #545454;
 margin-bottom: 3em;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 .presented
 {
@@ -596,7 +747,7 @@ text-indent: 0em;
 font-weight: lighter;
 color: #545454;
 margin-bottom: 2em;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 .chapau1
 {
@@ -605,7 +756,7 @@ text-align: left;
 text-indent: 0em;
 margin-top: 0.5em;
 font-weight: bold;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 p.chapoutlhd
 {
@@ -625,11 +776,11 @@ border-bottom-width: 8px;
 border-bottom-style: solid;
 border-bottom-color: #6D3A17;
 text-indent: -1px;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 li.chapoutl1
 {
-font-family: Georgia, serif;
+font-family: MinionPro;
 font-size: 16px;
 line-height: 150%;
 color: #2E2E2E;
@@ -643,7 +794,7 @@ text-indent: 0em;
 }
 li.chapoutl2
 {
-font-family: Georgia, serif;
+font-family: MinionPro;
 font-size: 16px;
 line-height: 150%;
 color: #2E2E2E;
@@ -658,7 +809,7 @@ text-align: left;
 }
 li.chapoutl3
 {
-font-family: Georgia, serif;
+font-family: MinionPro;
 font-size: 16px;
 line-height: 150%;
 color: #2E2E2E;
@@ -698,7 +849,7 @@ text-indent: -1px;
 border-bottom-width: 8px;
 border-bottom-style: solid;
 border-bottom-color: #695621;
-font-family: Georgia, serif;
+font-family: MinionPro;
 }
 .objtext
 {
@@ -777,7 +928,7 @@ font-size: 130%;
 margin-top: 1em;
 margin-bottom: 0.25em;
 color: #535C05;
-font-family: Georgia, serif;
+font-family: "GillSans";
 page-break-inside: avoid;
 }
 h3.h2hd
@@ -786,7 +937,7 @@ font-size: 110%;
 margin-top: 1em;
 margin-bottom: 0.25em;
 color: #2C5E6D;
-font-family: Georgia, serif;
+font-family: "GillSans";
 }
 h4.h3hd
 {
@@ -796,7 +947,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #800000;
-font-family: Georgia, serif;
+font-family: "GillSans";
 }
 h5.h4hd
 {
@@ -806,7 +957,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #88471B;
-font-family: Georgia, serif;
+font-family: "GillSans";
 }
 h6.h5hd
 {
@@ -816,7 +967,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #747574;
-font-family: Georgia, serif;
+font-family: "GillSans";
 }
 .h6hd
 {
@@ -826,7 +977,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #00615C;
-font-family: Georgia, serif;
+font-family: "GillSans";
 }
 .h7hd
 {
@@ -836,7 +987,7 @@ margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
 color: #0067C8;
-font-family: Georgia, serif;
+font-family: "GillSans";
 }
 .h8hd
 {
@@ -845,7 +996,7 @@ font-weight: bold;
 margin-top: 1em;
 margin-bottom: 0.25em;
 text-transform: none;
-font-family: Georgia, serif;
+font-family: "GillSans";
 }
 .h3after2
 {
@@ -856,11 +1007,11 @@ color: #800000;
 text-indent: 0em;
 margin-top: 0px;
 margin-bottom: 0.25em;
-font-family: Georgia, serif;
+font-family: "GillSans";
 }
 .textfl
 {
-font-family: serif;
+font-family: MinionPro;
 font-size: 16px;
 line-height: 150%;
 color: #2E2E2E;
@@ -871,7 +1022,7 @@ text-indent: 0em;
 }
 .text
 {
-font-family: serif;
+font-family: MinionPro;
 font-size: 16px;
 line-height: 150%;
 color: #2E2E2E;
@@ -962,16 +1113,26 @@ padding-left: 5px;
 padding-top: 5px;
 text-align: center;
 }
+
 .figleg
 {
-font-family: sans-serif;
-font-size: 90%;
+font-family: "GillSans-Light";
+font-size: 100%;
 line-height: 1.5em;
 text-align: left;
 text-indent: 0em;
 margin-right: 2em;
 margin-left: 2em;
 }
+
+.gillsans
+{
+font-family: "GillSans";
+font-size: 110%;
+}
+
+
+
 .figtitle
 {
 font-size: 90%;
@@ -1019,6 +1180,7 @@ text-align: left;
 text-indent: 0em;
 text-transform: uppercase;
 color: #800000;
+font-family: "GillSans";
 }
 .tablediv
 {
@@ -1489,6 +1651,7 @@ padding-right: 5px;
 font-weight: bold;
 font-size: 16px;
 }
+
 .b1title
 {
 text-align: left;
@@ -1505,8 +1668,29 @@ margin-bottom: 0em;
 border-bottom-color: #4F4F4F;
 border-bottom-style: solid;
 border-bottom-width: 2px;
-font-family: sans-serif;
+font-family: GillSansStd;
 }
+
+.b1title2
+{
+text-align: left;
+text-indent: 0em;
+padding-left: 0px;
+padding-bottom: 0px;
+padding-right: 5px;
+font-weight: bold;
+font-size: 100%;
+letter-spacing: 2px;
+color: #B44C16;
+margin-top: 0em;
+margin-bottom: 0em;
+border-bottom-color: #4F4F4F;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+font-family: GillSansStd-BoldCondensed;
+}
+
+
 .b1caption
 {
 padding-left: 0px;
@@ -2060,7 +2244,6 @@ color: #454545;
 p.quote
 {
 font-size: 16px;
-font-style: italic;
 margin-left: 2em;
 margin-right: 0em;
 margin-top: 1em;
@@ -3537,8 +3720,7 @@ text-decoration: line-through;
 }
 span.inlinecode
 {
-font-family: monospace;
-font-size: inherit;
+font-family: "LMMono10";
 }
 span.sansserif
 {
@@ -3610,10 +3792,11 @@ text-indent: 0em;
 pre
 {
 font-size: 16px;
+font-family: "LMMono9";
 }
 
 pre em{
-font-family:serif;
+font-family: MinionPro;
 }
 
 .question
@@ -4726,7 +4909,7 @@ text-align: right;
 .affiliations{
 	display: block;
     margin-bottom: 0.8em;
-	font-family: serif;
+	font-family: MinionPro;
 	font-style: italic;
 }
 
@@ -4965,7 +5148,7 @@ display: table-cell;
 
 span.serif
 {
-font-family: serif;
+font-family: MinionPro;
 }
 
 
@@ -4988,6 +5171,26 @@ font-family: sans-serif;
 font-size: inherit;
 }
 
+span.underline1
+{
+border-bottom: 1px solid;
+}
+
+
+.boxg1a
+{
+margin-top: .1em;
+margin-bottom: .1em;
+margin-right: auto;
+margin-left: 4em;
+text-indent: 0em;
+word-break: break-word;
+}
+
+
+.big{
+font-size: 3em;
+}
 
 
 /********** RICE-22 (Forced margins to 0 for body) ***********/
@@ -4997,6 +5200,7 @@ font-size: inherit;
 		margin: 0;
 	}
 }
+
 
 
 

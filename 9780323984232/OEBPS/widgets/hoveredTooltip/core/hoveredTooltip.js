@@ -223,8 +223,11 @@ function setRibbonDirection($link) {
     var $tooltip = $link.siblings('.tooltip');
     var $popover = $link.siblings('.popover');
     var tooltipWidth = $tooltip.outerWidth() || 130;
-    var cutoffPadding = 0;
-
+    
+    var cutoffPadding = 10;
+    var tooltipHeight = $tooltip.outerHeight() || 120;
+    var popoverHeight = $popover.outerHeight() || 120;
+    
     // Compute available space inside container
     var availableRight = containerRect.right - linkRect.right;
     var availableLeft = linkRect.left - containerRect.left;
@@ -241,11 +244,51 @@ function setRibbonDirection($link) {
         tooltipDirection = 'tooltip-right';
         popoverDirection = 'popover-right';
     }
+    
+    var tooltipPosMargin = tooltipHeight/2;
+    var popoverPosMargin = popoverHeight/2;
+    //debugLog("linkRect.bottom: " + linkRect.bottom);
+    //debugLog("linkRect.top: " + linkRect.top);
+    //$link.append("<span>b:" + linkRect.bottom + "</span>")
 
+    var winHeight = document.documentElement.clientHeight;
+
+    //$link.append("<span>lt:"  + linkRect.top + "</span>");
+    //$link.append("<span>th:" + tooltipHeight + "</span>");
+    //$link.append("<span>ph:" + popoverHeight + "</span>");
+    //$link.append("<span>ch:" + winHeight + "</span>")
+
+    //$link.append("<span>oh:" + document.documentElement.offsetHeight + "</span>")
+    //$link.append("<span>sh:" + document.documentElement.scrollHeight + "</span>")
+    //$link.append("<span>wh:" + window.innerHeight + "</span>")
+    //“b:428.1875t:400.1875cb:578.1875ct:400”
+
+    var linkTopPos = linkRect.top;
+    //$link.append("<span>lt:"  + linkTopPos + "</span>");
+    var linkBottomPos = (winHeight - linkRect.top - 45);
+    var tooltipPanelPos = "pos-center";
+    var popoverPanelPos = "pos-center";
+    if(linkTopPos>-10 && linkTopPos<winHeight){        
+        if(linkTopPos<tooltipPosMargin){
+            tooltipPanelPos = "pos-top";
+        }
+        else if(linkBottomPos<tooltipPosMargin){
+            tooltipPanelPos = "pos-bottom";
+        }
+        if(linkTopPos<popoverPosMargin){
+            popoverPanelPos = "pos-top";
+        }
+        else if(linkBottomPos<popoverPosMargin){
+            popoverPanelPos = "pos-bottom";
+        }
+    }
     // Apply classes
     $link.parent().removeClass('ribbon-left ribbon-right').addClass(directionClass);
     $tooltip.removeClass('tooltip-left tooltip-right').addClass(tooltipDirection);
     $popover.removeClass('popover-left popover-right').addClass(popoverDirection);
+
+    $tooltip.removeClass('pos-center pos-top pos-bottom').addClass(tooltipPanelPos);
+    $popover.removeClass('pos-center pos-top pos-bottom').addClass(popoverPanelPos);
 }
 
 function debugLog(message) {

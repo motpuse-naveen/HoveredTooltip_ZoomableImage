@@ -283,6 +283,18 @@
 -moz-box-shadow: 3px 3px 30px -3px rgba(0,0,0,0.7);
 }
 
+.hovered-ribbon .tooltip.pos-bottom,
+.hovered-ribbon .popover.pos-bottom {
+    transform: translateY(15px);
+    bottom: 50%;
+    top: auto;
+}
+
+.hovered-ribbon .tooltip.pos-top,
+.hovered-ribbon .popover.pos-top {
+    transform: translateY(-15px);
+}
+
 /* Container */
 .hovered-ribbon .btn-cont {
     display: flex;

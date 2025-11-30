@@ -285,14 +285,14 @@
 
 .hovered-ribbon .tooltip.pos-bottom,
 .hovered-ribbon .popover.pos-bottom {
-    transform: translateY(15px);
+    transform: translateY(14px);
     bottom: 50%;
     top: auto;
 }
 
 .hovered-ribbon .tooltip.pos-top,
 .hovered-ribbon .popover.pos-top {
-    transform: translateY(-15px);
+    transform: translateY(-14px);
 }
 
 /* Container */

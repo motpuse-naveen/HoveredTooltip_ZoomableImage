@@ -1,5 +1,5 @@
 var HoveredJSONData = {
-    //cf0140, cf0120, cf0105, aenun0035 --- id given to the tooltips.
+    //cf0140, cf0120, cf0105, aenun0035 --- id given to the tooltips.    
     enun0010: {content:`<strong>Example 2.1:</strong><br/> Syntax of Arabic numerals`, width:"150px"},
     enun0020: {content:`<strong>Example 2.2</strong><br/> Lexical structure of C17`, width:"150px"},
     enun0025: {content:`<strong>Example 2.3:</strong><br/> Syntax of numeric constants`, width:"150px"},

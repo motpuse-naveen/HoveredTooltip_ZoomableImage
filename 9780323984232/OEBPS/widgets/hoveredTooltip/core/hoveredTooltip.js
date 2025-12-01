@@ -83,6 +83,7 @@ $(document).ready(function () {
         // --- DESKTOP: Tooltip ---
         if (!isTouch) {
             $link.on('mouseenter focus', function () {
+                setRibbonDirection($(this));
                 setTooltipDirection($(this));
                 $tooltip.addClass('show').attr("aria-hidden", "false").removeAttr("hidden");
                 var plainText = $('<div>').html(hoveredObj.content).text();
@@ -120,6 +121,7 @@ $(document).ready(function () {
                 $('.hovered-ribbon a').attr("aria-expanded", "false");
 
                 if (!isVisible) {
+                    setRibbonDirection($(this));
                     setPoptipDirection($(this))
                     $popover.show().attr("aria-hidden", "false").removeAttr("hidden");
                     $(this).attr("aria-expanded", "true");
@@ -152,26 +154,38 @@ $(document).ready(function () {
                 $link.attr("aria-expanded", "false").focus();
             });
         }
-
-        // ESC to close
-        $(document).on('keydown', function (e) {
-            if (e.key === "Escape") {
-                if ($popover.is(':visible')) {
-                    $popover.hide().attr("aria-hidden", "true").attr("hidden", "hidden");
-                    $popoverGoBtn.attr("tabindex", "-1");
-                    $closeBtn.attr("tabindex", "-1");
-                    $link.attr("aria-expanded", "false").focus();
-                }
-                if ($tooltip.is(':visible')) {
-                    $tooltip.removeClass('show').attr("aria-hidden", "true").attr("hidden", "hidden");
-                }
-            }
-        });
-
+        
         // Set ribbon direction
         setRibbonDirection($link);
     });
 });
+
+$(document).on("keydown", function (e) {
+    if (e.key !== "Escape") return;
+
+    // Close all popovers
+    $(".popover:visible").each(function () {
+        const $pop = $(this);
+        const popId = $pop.attr("id");
+        const linkId = popId.replace("popover-", "");
+        const $link = $("#" + linkId);
+
+        // Hide popover
+        $pop.hide().attr("aria-hidden", "true").attr("hidden", "hidden");
+
+        // Restore tabindex inside popover
+        $pop.find("[tabindex]").attr("tabindex", "-1");
+
+        // Update link aria and focus
+        $link.attr("aria-expanded", "false").focus();
+    });
+
+    // Close all visible tooltips
+    $(".tooltip.show").each(function () {
+        $(this).removeClass("show").attr("aria-hidden", "true").attr("hidden", "hidden");
+    });
+});
+
 
 // One debounce timer for all events
 var ribbonUpdateTimer;
@@ -216,6 +230,8 @@ function setRibbonDirection($link) {
     var tooltipDirection = 'tooltip-left';
     var popoverDirection = 'popover-left';
 
+    $link.addClass("hovered-link");
+
     // Find nearest container that defines visible area
     var $container = $link.closest('p,li ,ul, ol, div, section, .page-container, [role="doc-pagebreak"], body').first();
     if ($container.length === 0) $container = $(window);
@@ -229,9 +245,8 @@ function setRibbonDirection($link) {
 
     var cutoffPadding = 5;
     // Compute available space inside container
-   // var availableRight = containerRect.right - linkRect.right;
+    var availableRight = containerRect.right - linkRect.right;
     var availableLeft = linkRect.left - containerRect.left;
-
     // Flip to left side only if not enough space on the right
     if (availableLeft < (tooltipWidth + cutoffPadding)) {
         directionClass = 'ribbon-left';

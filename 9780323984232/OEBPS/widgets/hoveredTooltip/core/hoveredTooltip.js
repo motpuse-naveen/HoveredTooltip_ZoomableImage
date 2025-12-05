@@ -83,7 +83,7 @@ $(document).ready(function () {
         // --- DESKTOP: Tooltip ---
         if (!isTouch) {
             $link.on('mouseenter focus', function () {
-                setRibbonDirection($(this));
+                //setRibbonDirection($(this));
                 setTooltipDirection($(this));
                 $tooltip.addClass('show').attr("aria-hidden", "false").removeAttr("hidden");
                 var plainText = $('<div>').html(hoveredObj.content).text();
@@ -121,7 +121,7 @@ $(document).ready(function () {
                 $('.hovered-ribbon a').attr("aria-expanded", "false");
 
                 if (!isVisible) {
-                    setRibbonDirection($(this));
+                    //setRibbonDirection($(this));
                     setPoptipDirection($(this))
                     $popover.show().attr("aria-hidden", "false").removeAttr("hidden");
                     $(this).attr("aria-expanded", "true");

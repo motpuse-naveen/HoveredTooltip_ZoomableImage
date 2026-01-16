@@ -157,7 +157,7 @@ figure.zoomable-figure {
   left: -40px;
   top: 0px;
   background-color: rgba(255, 255, 255, 0.6);
-  background-image: url(images/zoom-icon.svg);
+  background-image: url('images/zoom-icon.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -167,7 +167,7 @@ figure.zoomable-figure {
 
 /* Zoom in button */
 .figure-modal .zoom-in-btn {
-  background-image: url('images/zoom-in.svg');
+  background-image: url('images/zoom-in.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -175,7 +175,7 @@ figure.zoomable-figure {
 
 /* Zoom out button */
 .figure-modal .zoom-out-btn {
-  background-image: url('images/zoom-out.svg');
+  background-image: url('images/zoom-out.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -183,7 +183,7 @@ figure.zoomable-figure {
 
 /* Zoom in button */
 .figure-modal .zoom-reset-btn {
-  background-image: url('images/zoom-reset.svg');
+  background-image: url('images/zoom-reset.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -220,14 +220,14 @@ figure.zoomable-figure {
 }
 
 .figure-modal .panleft {
-  background-image: url(images/left-direction.svg);
+  background-image: url('images/left-direction.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .figure-modal .panright {
-  background-image: url(images/left-direction.svg);
+  background-image: url('images/right-direction.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -238,7 +238,7 @@ figure.zoomable-figure {
 }
 
 .figure-modal .pantop {
-  background-image: url(images/bottom-direction.svg);
+  background-image: url('images/bottom-direction.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -249,10 +249,13 @@ figure.zoomable-figure {
 }
 
 .figure-modal .panbottom {
-  background-image: url(images/bottom-direction.svg);
+  background-image: url('images/bottom-direction.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
+}
+.figure-modal .panbottom::before {
+  content: '>';
 }
 
 .figure-modal .close-modal::before {

@@ -187,12 +187,12 @@
     <item id="zoomableFigures01" href="widgets/zoomableFigures/libs/jquery-3.6.0.min.js" media-type="text/javascript"/>
     <item id="zoomableFigures02" href="widgets/zoomableFigures/core/zoomableFigure.js" media-type="text/javascript"/>
     <item id="zoomableFigures03" href="widgets/zoomableFigures/core/zoomableFigure.css" media-type="text/css"/>
-    <item id="zoomableFigures04" href="widgets/zoomableFigures/core/images/zoom-reset.svg" media-type="image/svg+xml"/>
-    <item id="zoomableFigures05" href="widgets/zoomableFigures/core/images/zoom-out.svg" media-type="image/svg+xml"/>
-    <item id="zoomableFigures06" href="widgets/zoomableFigures/core/images/zoom-in.svg" media-type="image/svg+xml"/>
-    <item id="zoomableFigures07" href="widgets/zoomableFigures/core/images/zoom-icon.svg" media-type="image/svg+xml"/>
-    <item id="zoomableFigures08" href="widgets/zoomableFigures/core/images/left-direction.svg" media-type="image/svg+xml"/>
-    <item id="zoomableFigures09" href="widgets/zoomableFigures/core/images/bottom-direction.svg" media-type="image/svg+xml"/>
+    <item id="zoomableFigures04" href="widgets/zoomableFigures/core/images/zoom-reset.png" media-type="image/png"/>
+    <item id="zoomableFigures05" href="widgets/zoomableFigures/core/images/zoom-out.png" media-type="image/png"/>
+    <item id="zoomableFigures06" href="widgets/zoomableFigures/core/images/zoom-in.png" media-type="image/png"/>
+    <item id="zoomableFigures07" href="widgets/zoomableFigures/core/images/zoom-icon.png" media-type="image/png"/>
+    <item id="zoomableFigures08" href="widgets/zoomableFigures/core/images/left-direction.png" media-type="image/png"/>
+    <item id="zoomableFigures09" href="widgets/zoomableFigures/core/images/bottom-direction.png" media-type="image/png"/>
 
 		<item id="font1" href="fonts/MinionPro.otf" media-type="application/vnd.ms-opentype"/>
 		<item id="font2" href="fonts/MinionPro-Bold.otf" media-type="application/vnd.ms-opentype"/>

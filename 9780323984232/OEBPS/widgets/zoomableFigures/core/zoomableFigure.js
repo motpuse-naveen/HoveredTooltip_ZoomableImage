@@ -14,17 +14,6 @@ class ZoomableFigure {
     this.translateY = 0;
 
     this.panStep = 20; // pixels to move per button click
-    
-    this.ZoomWidgetIconPaths = {
-      zoomIcon: 'core/images/zoom-icon.png',
-      zoomIn: 'core/images/zoom-in.png',
-      zoomOut: 'core/images/zoom-out.png',
-      zoomReset: 'core/images/zoom-reset.png',
-      panLeft: 'core/images/left-direction.png',
-      panRight: 'core/images/right-direction.png',
-      panTop: 'core/images/top-direction.png',
-      panBottom: 'core/images/bottom-direction.png',
-    }
   }
 
   init() {
@@ -56,24 +45,24 @@ class ZoomableFigure {
       $modal = $(`
         <div tabindex="0" class="figure-modal" id="zoomableFigureModal" role="dialog" aria-modal="true" aria-label="Zoomable image viewer">
           <button tabindex="0" class="zoom-btn close-modal" aria-label="Close Image Viewer" title="Close Image Viewer"></button>
-          <div class="modal-content">
+          <div class="modal-content">            
             <div class="image-container">
               <img class="zoomable-image" style="transform: scale(1) translate(0px,0px); cursor: grab;" />
-            </div>
-          </div>
+            </div>                     
+          </div>          
           <div class="zoom-controls" role="group" aria-label="Zoom controls">              
               <div class="zoom-info zoom-level">Zoom: 100%</div>              
-              <button tabindex="0" class="zoom-btn zoom-in-btn" aria-label="Zoom In" title="Zoom In"><img></button>
+              <button tabindex="0" class="zoom-btn zoom-in-btn" aria-label="Zoom In" title="Zoom In"></button>
               <button tabindex="0" class="zoom-btn zoom-out-btn" aria-label="Zoom Out" title="Zoom Out"></button>
               <button tabindex="0" class="zoom-btn zoom-reset-btn" disabled="true"  aria-label="Reset Zoom" title="Reset Zoom"></button>
-          </div>
+          </div>  
           <div class="pan-controls" role="group" aria-label="Pan controls">
             <div id="pan-status" class="visually-hidden" aria-live="polite"></div>
             <button tabindex="0" class="zoom-btn panleft" aria-label="Pan Left" title="Pan Left"></button>
             <button tabindex="0" class="zoom-btn panright" aria-label="Pan Right" title="Pan Right"></button>
             <button tabindex="0" class="zoom-btn pantop" aria-label="Pan Up" title="Pan Up"></button>
             <button tabindex="0" class="zoom-btn panbottom" aria-label="Pan Down" title="Pan Down"></button>
-          </div>
+          </div> 
         </div>
       `);
       $('body').append($modal);
@@ -109,12 +98,12 @@ class ZoomableFigure {
     if(currentAction=="zoomout"){
       if(this.currentZoom <= this.minZoom){
         $zoomIn.focus();
-      }
+      }      
     }
     else if(currentAction=="zoomin"){
       if(this.currentZoom >= this.maxZoom){
         $zoomOut.focus();
-      }
+      }      
     }
     else if(currentAction=="reset"){
       $zoomOut.focus();

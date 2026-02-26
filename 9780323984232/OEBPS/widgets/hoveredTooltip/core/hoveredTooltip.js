@@ -229,6 +229,7 @@ function setRibbonDirection($link) {
     var directionClass = 'ribbon-right';
     var tooltipDirection = 'tooltip-left';
     var popoverDirection = 'popover-left';
+    var z_index_class = ""; 
 
     $link.addClass("hovered-link");
 
@@ -249,12 +250,23 @@ function setRibbonDirection($link) {
     var availableLeft = linkRect.left - containerRect.left;
     // Flip to left side only if not enough space on the right
     if (availableLeft < (tooltipWidth + cutoffPadding)) {
+        /*
+        The Example description pop-ups now stay on the page, sometimes opening to the left and sometimes to the right.  
+        This is fine.  It’s odd, though, to have the original glyph pointing to the left in the common case.  We’d either like to always have the glyph point to the right (since it’s indicating that what _follows_ is an example) or not have it point at all -- just be a little gray box.
+        */
         directionClass = 'ribbon-left';
         tooltipDirection = 'tooltip-right';
         popoverDirection = 'popover-right';
+        z_index_class = "low-z-index";
     }
     // Apply classes
     $link.parent().removeClass('ribbon-left ribbon-right').addClass(directionClass);
+    if(z_index_class!=""){
+        $link.parent().addClass(z_index_class); 
+    }
+    else{
+        $link.parent().removeClass(z_index_class); 
+    }
     $tooltip.removeClass('tooltip-left tooltip-right').addClass(tooltipDirection);
     $popover.removeClass('popover-left popover-right').addClass(popoverDirection);   
 }

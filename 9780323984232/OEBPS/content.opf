@@ -214,6 +214,7 @@
 		<item id="font18" href="fonts/ZapfDingbatsStd.otf" media-type="application/vnd.ms-opentype"/>
 		<item id="font19" href="fonts/GillSansStd-Condensed.otf" media-type="application/vnd.ms-opentype"/>
 		<item id="font20" href="fonts/GillSansStd-BoldCondensed.otf" media-type="application/vnd.ms-opentype"/>
+		<item id="font21" href="fonts/UniversLight.ttf" media-type="application/vnd.ms-opentype"/>
 
     <item id="cover" href="Cover.xhtml" media-type="application/xhtml+xml"/>
     <item id="cover_image" href="images/9780323984232/9780323984232_FC.jpg" media-type="image/jpeg" properties="cover-image"/>

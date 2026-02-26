@@ -3,6 +3,14 @@
 
 
 @font-face{
+font-family: "UniversLight";
+font-style: normal;
+font-weight: normal;
+src:url(fonts/UniversLight.ttf);
+}
+
+
+@font-face{
 font-family: "MinionPro";
 font-style: normal;
 font-weight: normal;
@@ -3719,10 +3727,23 @@ span.strike
 {
 text-decoration: line-through;
 }
+
+span.inlinecode2
+{
+font-family: "LMMono9";
+}
+
 span.inlinecode
 {
 font-family: "LMMono10";
 }
+
+span.inlinecode1
+{
+font-family: "LMMonoLt10";
+}
+
+
 span.sansserif
 {
 font-family: sans-serif;
@@ -5168,10 +5189,17 @@ text-indent: 0em;
 }
 
 
-span.sans-serif
+.sans-serif
 {
-font-family: sans-serif;
+font-family: UniversLight;
 }
+
+.font1
+{
+font-family: UniversLight;
+}
+
+
 
 span.underline1
 {

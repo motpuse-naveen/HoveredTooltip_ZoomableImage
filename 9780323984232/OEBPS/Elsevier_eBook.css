@@ -1666,18 +1666,18 @@ font-size: 16px;
 text-align: left;
 text-indent: 0em;
 padding-left: 0px;
-padding-bottom: 0px;
+padding-bottom: 5px;
 padding-right: 5px;
 font-weight: bold;
 font-size: 100%;
 letter-spacing: 2px;
 color: #B44C16;
 margin-top: 0em;
-margin-bottom: 0em;
+margin-bottom: 10px;
 border-bottom-color: #4F4F4F;
 border-bottom-style: solid;
 border-bottom-width: 2px;
-font-family: GillSansStd;
+font-family: sans-serif;
 }
 
 .b1title2
@@ -1997,6 +1997,17 @@ margin-left: 1.4em;
 margin-top: 0em;
 margin-bottom: 0em;
 }
+
+li.numlistba
+{
+font-size: 16px;
+text-indent: -3.4em;
+margin-left: 3.2em;
+margin-top: 0em;
+margin-bottom: 0em;
+}
+
+
 li.numlistc
 {
 font-size: 16px;
@@ -2013,6 +2024,17 @@ margin-left: -0.1em;
 margin-top: 0em;
 margin-bottom: 0em;
 }
+
+li.numlist1e
+{
+font-size: 100%;
+text-indent: -1.8em;
+margin-left: -2.2em;
+margin-top: 0em;
+margin-bottom: 0em;
+}
+
+
 li.numlist1a
 {
 font-size: 100%;
@@ -3813,8 +3835,8 @@ text-indent: 0em;
 }
 pre
 {
-margin-bottom: 0px;
-margin-top: 0px;
+margin-bottom: 7px;
+margin-top: 7px;
 font-size: 16px;
 font-family: "LMMono9";
 }
